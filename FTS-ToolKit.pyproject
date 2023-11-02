@@ -1,5 +1,10 @@
 {
     "files": [
-        "main.py"
+        "assets/icons.qrc",
+        "icons.qrc",
+        "loadSNWindow.ui",
+        "main.py",
+        "settings.ui",
+        "startWarning.ui"
     ]
 }

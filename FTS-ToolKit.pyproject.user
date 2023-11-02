@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 11.0.2, 2023-09-13T12:41:28. -->
+<!-- Written by QtCreator 11.0.2, 2023-10-12T13:03:44. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -100,7 +100,6 @@
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Python.PysideBuildStep</value>
-      <value type="QString" key="Python.PySideProjectTool">/Users/everlylarche/Library/Python/3.9/bin/pyside6-project</value>
      </valuemap>
      <value type="qlonglong" key="ProjectExplorer.BuildStepList.StepsCount">1</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Build</value>
@@ -143,14 +142,14 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">main.py</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./Users/everlylarche/Documents/Dev/FTS-ToolKit/main.py</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/Users/everlylarche/Documents/Dev/FTS-ToolKit/main.py</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{168fd73a-954c-4d9f-9b61-1fc2aecdc08e}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/Users/everlylarche/Documents/Dev/FTS-ToolKit/main.py</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">main.py2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./Users/everlylarche/Documents/Dev/FTS-Tool-Kit/main.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/Users/everlylarche/Documents/Dev/FTS-Tool-Kit/main.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{4296f2d3-ac90-42ce-aa73-3e7dd389684b}</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/Users/everlylarche/Documents/Dev/FTS-Tool-Kit/main.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/everlylarche/Documents/Dev/FTS-ToolKit</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/everlylarche/Documents/Dev/FTS-Tool-Kit</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
