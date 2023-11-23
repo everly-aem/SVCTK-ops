@@ -1,0 +1,13 @@
+{
+    "_id":999999,
+    "Model":"THS-3",
+    "Serial":999999,
+    "DOM":"2023-01-01",
+    "SVC_Data_00":{
+        "Date of SVC":"2023-10-10",
+        "Tech":"EL"
+    },
+    "CAL_Data_00":{
+        "Some":"Cal Data"
+    }
+}

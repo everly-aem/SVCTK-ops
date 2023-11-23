@@ -1,6 +1,8 @@
 {
     "files": [
         "assets/icons.qrc",
+        "commitQueue.ui",
+        "dbHandler.py",
         "icons.qrc",
         "loadSNWindow.ui",
         "main.py",
