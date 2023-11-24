@@ -17,7 +17,7 @@ from PyQt6 import (
     uic
 )
 import platform, logging, sys, datetime
-#import dbHandler
+from dbHandler import mongoHandler
 
 
 ###########
@@ -43,9 +43,6 @@ class mainUI():
     # Classwide variables/values
     commitData = []
 
-    todaysDate:str = datetime.datetime.today().strftime("%Y-%m-%d")
-
-
     # Class Setup
     def __init__(self):
         # Grab all UI elements that may be needed during startup
@@ -53,10 +50,11 @@ class mainUI():
         self.loadSNWindow = uic.loadUi("loadSNWindow.ui")
         self.loadSettingsWindow = uic.loadUi("settings.ui")
         self.commitQueueWindow = uic.loadUi("commitQueue.ui")
-        #self.contWindow = uic.loadUi("continue.ui")
+        self.contWindow = uic.loadUi("continue.ui")
 
         # Establish button connectors
-        self.window.commitTHS.clicked.connect(lambda: self.commitDB())
+        self.window.commitTHS.clicked.connect(lambda: self.addToQueue())
+        self.window.PushtoDB.clicked.connect(lambda: self.pushToDB())
 
         #Establish toolbar connectors
         self.window.actionSettings.triggered.connect(lambda: self.showFromToolbar(signal=0))
@@ -64,11 +62,15 @@ class mainUI():
         self.window.actionCommit_Queue.triggered.connect(lambda: self.showFromToolbar(signal=2))
 
         # Other UI Set-up
+        self.updateDate()
         self.window.date_of_entry.setText(self.todaysDate+" (Current)")
 
     ################
 
     # Class Functions
+    def updateDate(self):
+        self.todaysDate:str = datetime.datetime.today().strftime("%Y-%m-%d")
+
     def showUI(self):
         self.window.show()
 
@@ -92,28 +94,26 @@ class mainUI():
                 self.commitQueueWindow.list_commit.addItems(displaySN)
                 self.commitQueueWindow.exec()
 
-    # Det. what to commit and commit to DB
-    def commitDB(self):
+    # Det. what to commit depending on tab widget index as case statement
+    def addToQueue(self):
         signal:int = self.window.tabWidget.currentIndex()
 
         # Check if the user is sure, if not, end function do not grab data
-        #if self.contWindow.exec() == 0: return
+        if self.contWindow.exec() == 0: return
 
         match signal:
             case 0:
-                print(f"Commit FS Pressed! {signal}")
-                # Gather data from each child element using a ref dict with value and type
-                #print(self.window.tabWidget.children())
+                pass
             case 1:
                 ths_template = {
                 "destCollection": "THS",
                   "Serial_Number": 123456,
                   "Date_of_Entry": self.todaysDate,
                   "SVC_Details": {
-                    "NS_RMA": 4535,
-                    "NS_Customer": "FTS",
-                    "NS_Parts_SO": "SO35623",
-                    "Jira_Tiket": "CST-532",
+                    "NS_RMA": self.window.ns_rma.text(),
+                    "NS_Customer": self.window.ns_customer_entry.text(),
+                    "NS_Parts_SO": self.window.ns_so.text(),
+                    "Jira_Tiket": self.window.jira_ticket_entry.text(),
                     "THS_Sensor_Info": {
                       "00-THS-3_Serial_Number": 987654,
                       "Incoming_Status": "Preventative Maintenance"
@@ -137,9 +137,9 @@ class mainUI():
                       "Temp_Calibration_Pass": False,
                       "CTM_Installed": False
                     },
-                    "Service_Comments": "Long String of comments here",
-                    "Warranty_Status": "Limited Warranty",
-                    "Tech": "Everly Larche"
+                    "Service_Comments": self.window.svcComments.toPlainText(),
+                    "Warranty_Status": self.window.warranty_status.currentText(),
+                    "Tech": self.window.tech.text()
                   }
                 }
 
@@ -168,21 +168,64 @@ class mainUI():
             case _:
                 pass
 
+        # Clear the fields that have already been read by the ths_template
+        self.window.ns_rma.setText("RMA")
+        self.window.ns_customer_entry.clear()
+        self.window.ns_so.setText("SO")
+        self.window.jira_ticket_entry.setText("CST-")
+        self.window.svcComments.clear()
+        self.window.tech.clear()
+
+        # Preform other tasks when adding to the queue
+        self.window.PushtoDB.setEnabled(True)
+        self.updateDate()
+
     def getChildrenData(self, children, template, translation):
-        entry = template
+        entry:dict = template
+        print(type(entry))
 
         for child in children:
             if type(child).__name__ == "QComboBox":
-                entry.update({translation[child.objectName()]:child.currentText()})
+                self.updateNested(entry, translation[child.objectName()], child.currentText())
             elif type(child).__name__ == "QCheckBox":
-                entry.update({translation[child.objectName()]:child.isChecked()})
+                self.updateNested(entry, translation[child.objectName()], child.isChecked())
             elif type(child).__name__ == "QLineEdit":
-                entry.update({translation[child.objectName()]:child.text()})
+                self.updateNested(entry, translation[child.objectName()], child.text())
+                # After getting the data, clear the field for use on another sensor
+                child.clear()
             else:
                 pass
 
-        print(entry)
+            # Dont want to clear this field, but rather set it back to defualt
+            self.window.ths_module_fw.setText("15")
+
+        for x in entry:
+            print(f"{x}:{entry[x]}")
         self.commitData.append(entry)
+
+    def updateNested(self, target, targetKey, value):
+        for k in target.keys():
+            if targetKey == k:
+                target[k] = value
+                return target
+            elif isinstance(target[k], dict):
+                self.updateNested(target[k], targetKey, value)
+
+    def pushToDB(self):
+        # Check if the user is sure, if not, end function do not grab data
+        if self.contWindow.exec() == 0: return
+
+        db = mongoHandler()
+        print(db.pushCollection(self.commitData))
+        # Need to clear queue after commit and disable push to db button
+        self.commitData = []
+        self.window.PushtoDB.setEnabled(False)
+        self.commitQueueWindow.list_commit.clear()
+
+    def removeFromQueue(self):
+        pass
+
+
 
 
 

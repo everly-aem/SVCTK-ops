@@ -2,6 +2,7 @@
     "files": [
         "assets/icons.qrc",
         "commitQueue.ui",
+        "continue.ui",
         "dbHandler.py",
         "icons.qrc",
         "loadSNWindow.ui",

@@ -1,7 +1,7 @@
 {
-    "connStr":"mongodb://myUserAdmin:testfixtures@10.100.0.114:27017/?authMechanism=DEFAULT",
+    "connStr":"mongodb://myUserAdmin:BzC0ldBr3w!@10.100.0.114:27017/?authMechanism=DEFAULT",
     "dbName":"SVC_Reports",
-    "collections":[
+    "collectionNames":[
         "THS"
     ]
 }

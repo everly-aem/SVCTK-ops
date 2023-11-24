@@ -3,7 +3,7 @@
 from pymongo import MongoClient as mc
 import os, json
 
-class dbHandler:
+class mongoHandler:
     def __init__(self):
         # Get cfg information and setup vars for use
         _absDIR = os.getcwd()
@@ -13,6 +13,7 @@ class dbHandler:
         self.connectionString:str = self.db_cfg["connStr"]
 
         # Get all dbs from cfg and load into mem
+        self.collectionNames = []
         for collection in self.db_cfg["collectionNames"]:
             self.collectionNames.append(collection)
 
@@ -26,13 +27,14 @@ class dbHandler:
             return e
 
         try:
-            return client[self.db_cfg["dbName"]] # Return the db
+            db = client[self.db_cfg["dbName"]] # Return the db
+            return db[collection]
         except Exception as e:
             # Error grabbing the db from connection, does the DB exist?
             return e
 
     def pushCollection(self, data):
-        err_list = ()
+        err_list = []
 
         # When a user is ready to push data to the db this method will handle both single and multiple items
         # Runs after connection to the required db is made
