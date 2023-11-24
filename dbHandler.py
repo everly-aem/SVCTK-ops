@@ -56,7 +56,17 @@ class mongoHandler:
         # Grab data from a search and return it to the user
         # Searching through a SN only db and then when we know which db the data is stored in, connect and retrive it
         # Returns search Word and db that contains the item, calls getDB()
-        pass
+        results = []
+        for collection in self.collectionNames:
+            print(collection)
+            dbAccesser = self.getDB(collection)
+            search = dbAccesser.find({"Serial_Number":searchWord})
+            for entry in search:
+                results.append(entry)
+                print(entry)
+            if len(results) != 0: break
+        print(results)
+        return results
 
     def closeDB(self, db):
         # After work is complete, close the connection and inform the user of operation status

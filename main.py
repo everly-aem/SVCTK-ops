@@ -51,10 +51,14 @@ class mainUI():
         self.loadSettingsWindow = uic.loadUi("settings.ui")
         self.commitQueueWindow = uic.loadUi("commitQueue.ui")
         self.contWindow = uic.loadUi("continue.ui")
+        self.taskCompleteWindow = uic.loadUi("doneTask.ui")
+        self.searchResults = uic.loadUi("searchResults.ui")
 
         # Establish button connectors
         self.window.commitTHS.clicked.connect(lambda: self.addToQueue())
         self.window.PushtoDB.clicked.connect(lambda: self.pushToDB())
+        self.commitQueueWindow.remove_from_queue.clicked.connect(lambda: self.removeFromQueue(self.commitQueueWindow.list_commit.currentRow()))
+        self.loadSNWindow.buttonBox.accepted.connect(lambda: self.searchForEntry(self.loadSNWindow.sn.text()))
 
         #Establish toolbar connectors
         self.window.actionSettings.triggered.connect(lambda: self.showFromToolbar(signal=0))
@@ -80,11 +84,7 @@ class mainUI():
             case 0:
                 self.loadSettingsWindow.exec() #exec function are BLOCKING
             case 1:
-                endCode:int = self.loadSNWindow.exec() # Depending on user selection, return code will change
-                # how do I get the field data from the window before it closes?
-                if endCode == 1: self.window.svcComments.setPlainText("I put some text in here!") #toPlainText and setPlainText
-                print(f"From the widget: {self.window.svcComments.toPlainText()}")
-                # How to grab data from window UI before destruction??
+                endCode:int = self.loadSNWindow.exec()
             case 2:
                 displaySN = []
                 for items in self.commitData:
@@ -93,6 +93,7 @@ class mainUI():
                 print(displaySN)
                 self.commitQueueWindow.list_commit.addItems(displaySN)
                 self.commitQueueWindow.exec()
+                self.commitQueueWindow.list_commit.clear()
 
     # Det. what to commit depending on tab widget index as case statement
     def addToQueue(self):
@@ -179,6 +180,7 @@ class mainUI():
         # Preform other tasks when adding to the queue
         self.window.PushtoDB.setEnabled(True)
         self.updateDate()
+        self.taskCompleteWindow.exec()
 
     def getChildrenData(self, children, template, translation):
         entry:dict = template
@@ -221,11 +223,25 @@ class mainUI():
         self.commitData = []
         self.window.PushtoDB.setEnabled(False)
         self.commitQueueWindow.list_commit.clear()
+        self.taskCompleteWindow.exec()
 
-    def removeFromQueue(self):
-        pass
+    def removeFromQueue(self, index:int):
+        print(index)
+        self.commitQueueWindow.list_commit.takeItem(index)
+        self.commitData.pop(index)
+        print(self.commitData)
 
-
+    def searchForEntry(self, serialNumber:str):
+        print(serialNumber)
+        db = mongoHandler()
+        self.dbData = db.getCollection(serialNumber)
+        displaySN = []
+        for entry in self.dbData:
+            print(entry)
+            displaySN.append(entry["destCollection"] + " --> SN:" + entry["Serial_Number"] + f"  [{entry['Date_of_Entry']}]")
+        self.searchResults.search_list.addItems(displaySN)
+        self.searchResults.exec()
+        self.searchResults.search_list.clear()
 
 
 

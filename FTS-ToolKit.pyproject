@@ -4,9 +4,11 @@
         "commitQueue.ui",
         "continue.ui",
         "dbHandler.py",
+        "doneTask.ui",
         "icons.qrc",
         "loadSNWindow.ui",
         "main.py",
+        "searchResults.ui",
         "settings.ui",
         "startWarning.ui"
     ]
