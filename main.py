@@ -16,8 +16,8 @@ from PyQt6 import (
     QtWidgets,
     uic
 )
-import platform, logging, sys, datetime
-from dbHandler import mongoHandler
+import platform, logging, sys, datetime, os, json
+from src.dbHandler import mongoHandler
 
 
 ###########
@@ -31,7 +31,7 @@ class myLogger():
 
 class startPopUp():
     def __init__(self):
-        self.popUp = uic.loadUi("startWarning.ui")
+        self.popUp = uic.loadUi(os.path.join('_internal', 'startWarning.ui'))
 
     def showpop(self):
         # Executing the popup holds control until the window is closed
@@ -42,17 +42,18 @@ class startPopUp():
 class mainUI():
     # Classwide variables/values
     commitData = []
+    _absDIR = os.getcwd()
 
     # Class Setup
     def __init__(self):
         # Grab all UI elements that may be needed during startup
-        self.window = uic.loadUi("mainwindow.ui")
-        self.loadSNWindow = uic.loadUi("loadSNWindow.ui")
-        self.loadSettingsWindow = uic.loadUi("settings.ui")
-        self.commitQueueWindow = uic.loadUi("commitQueue.ui")
-        self.contWindow = uic.loadUi("continue.ui")
-        self.taskCompleteWindow = uic.loadUi("doneTask.ui")
-        self.searchResults = uic.loadUi("searchResults.ui")
+        self.window = uic.loadUi(os.path.join('_internal', 'mainwindow.ui'))
+        self.loadSNWindow = uic.loadUi(os.path.join('_internal', 'loadSNWindow.ui'))
+        self.loadSettingsWindow = uic.loadUi(os.path.join('_internal', 'settings.ui'))
+        self.commitQueueWindow = uic.loadUi(os.path.join('_internal', 'commitQueue.ui'))
+        self.contWindow = uic.loadUi(os.path.join('_internal', 'continue.ui'))
+        self.taskCompleteWindow = uic.loadUi(os.path.join('_internal', 'doneTask.ui'))
+        self.searchResults = uic.loadUi(os.path.join('_internal', 'searchResults.ui'))
 
         # Establish button connectors
         self.window.commitTHS.clicked.connect(lambda: self.addToQueue())
@@ -106,64 +107,21 @@ class mainUI():
             case 0:
                 pass
             case 1:
-                ths_template = {
-                "destCollection": "THS",
-                  "Serial_Number": 123456,
-                  "Date_of_Entry": self.todaysDate,
-                  "SVC_Details": {
-                    "NS_RMA": self.window.ns_rma.text(),
-                    "NS_Customer": self.window.ns_customer_entry.text(),
-                    "NS_Parts_SO": self.window.ns_so.text(),
-                    "Jira_Tiket": self.window.jira_ticket_entry.text(),
-                    "THS_Sensor_Info": {
-                      "00-THS-3_Serial_Number": 987654,
-                      "Incoming_Status": "Preventative Maintenance"
-                    },
-                    "Incoming_and_Visual": {
-                      "Passed_Checks": "Passed",
-                      "00-THS-3_FW_Ver": 15,
-                      "Visual_Complete": False,
-                      "Cleaned": False
-                    },
-                    "Calibration_and_Servicing": {
-                      "Icoming_RH": "Pass",
-                      "Incoming_Temp": "Pass",
-                      "Required_Repairs": False,
-                      "RH_Calibrated": False,
-                      "Builentins_Used": False,
-                      "Active_Current_Pass": False,
-                      "Filter_Replaced": False,
-                      "Desiccant_Replaced": False,
-                      "RH_Calibration_Pass": False,
-                      "Temp_Calibration_Pass": False,
-                      "CTM_Installed": False
-                    },
-                    "Service_Comments": self.window.svcComments.toPlainText(),
-                    "Warranty_Status": self.window.warranty_status.currentText(),
-                    "Tech": self.window.tech.text()
-                  }
-                }
+                # Open the template JSON structures and pass it along to the functionn to be changed
+                with open(os.path.join(self._absDIR, '_templateStructs', 'ths_template.json'), 'r') as jsonFile:
+                            ths_template = json.loads(jsonFile.read())
+                with open(os.path.join(self._absDIR, '_templateStructs', 'ths_translation.json'), 'r') as jsonFile:
+                            ths_translation = json.loads(jsonFile.read())
 
-                ths_translation = {
-                    "ths_sn":"Serial_Number",
-                    "ths_module_sn":"00-THS-3_Serial_Number",
-                    "ths_incoming_status":"Incoming_Status",
-                    "ths_initial_verification":"Passed_Checks",
-                    "ths_module_fw":"00-THS-3_FW_Ver",
-                    "ths_visual":"Visual_Complete",
-                    "ths_cleaning":"Cleaned",
-                    "ths_incoming_rh":"Incoming_RH",
-                    "ths_incoming_temp":"Incoming_Temp",
-                    "ths_repairs_required":"Required_Repairs",
-                    "ths_rh_calibration":"RH_Calibrated",
-                    "ths_builentins_used":"Builentins_Used",
-                    "ths_active_current":"Active_Current_Pass",
-                    "ths_filter":"Filter_Replaced",
-                    "ths_desiccant":"Desciccant_Replaced",
-                    "ths_rh_calibration_pass":"RH_Calibration_Pass",
-                    "ths_temp_calibration":"Temp_calibration_Pass",
-                    "ths_ctm":"CTM_Installed"
-                }
+                # Get non-itterable items first
+                ths_template["Date_of_Entry"] = self.todaysDate
+                ths_template["SVC_Details"]["NS_RMA"] = self.window.ns_rma.text()
+                ths_template["SVC_Details"]["NS_Customer"] = self.window.ns_customer_entry.text()
+                ths_template["SVC_Details"]["NS_Parts_SO"] = self.window.ns_so.text()
+                ths_template["SVC_Details"]["Jira_Ticket"] = self.window.jira_ticket_entry.text()
+                ths_template["SVC_Details"]["Service_Comments"] = self.window.svcComments.toPlainText()
+                ths_template["SVC_Details"]["Warranty_Status"] = self.window.warranty_status.currentText()
+                ths_template["SVC_Details"]["Tech"] = self.window.tech.text()
 
                 self.getChildrenData(children=self.window.THS_scroll_area_contents.children(), template=ths_template, translation=ths_translation)
             case _:

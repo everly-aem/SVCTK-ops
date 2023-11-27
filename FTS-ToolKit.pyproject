@@ -10,6 +10,7 @@
         "main.py",
         "searchResults.ui",
         "settings.ui",
+        "src/__init__.py",
         "startWarning.ui"
     ]
 }
