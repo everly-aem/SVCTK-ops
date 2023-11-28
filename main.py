@@ -14,7 +14,8 @@
 #import rc_icons
 from PyQt6 import (
     QtWidgets,
-    uic
+    uic,
+    QtCore
 )
 import platform, logging, sys, datetime, os, json
 from src.dbHandler import mongoHandler
@@ -60,6 +61,7 @@ class mainUI():
         self.window.PushtoDB.clicked.connect(lambda: self.pushToDB())
         self.commitQueueWindow.remove_from_queue.clicked.connect(lambda: self.removeFromQueue(self.commitQueueWindow.list_commit.currentRow()))
         self.loadSNWindow.buttonBox.accepted.connect(lambda: self.searchForEntry(self.loadSNWindow.sn.text()))
+        self.searchResults.buttonBox.accepted.connect(lambda: self.loadEntry(self.searchResults.search_list.currentRow()))
 
         #Establish toolbar connectors
         self.window.actionSettings.triggered.connect(lambda: self.showFromToolbar(signal=0))
@@ -123,7 +125,7 @@ class mainUI():
                 ths_template["SVC_Details"]["Warranty_Status"] = self.window.warranty_status.currentText()
                 ths_template["SVC_Details"]["Tech"] = self.window.tech.text()
 
-                self.getChildrenData(children=self.window.THS_scroll_area_contents.children(), template=ths_template, translation=ths_translation)
+                self.childrenData(children=self.window.THS_scroll_area_contents.children(), template=ths_template, translation=ths_translation, get=True, set=False)
             case _:
                 pass
 
@@ -134,42 +136,52 @@ class mainUI():
         self.window.jira_ticket_entry.setText("CST-")
         self.window.svcComments.clear()
         self.window.tech.clear()
+        self.window.ths_module_fw.setText("15")
 
         # Preform other tasks when adding to the queue
         self.window.PushtoDB.setEnabled(True)
         self.updateDate()
         self.taskCompleteWindow.exec()
 
-    def getChildrenData(self, children, template, translation):
-        entry:dict = template
-        print(type(entry))
+    def childrenData(self, children, template, translation, get:bool, set:bool):
+        if get: entry:dict = template
 
         for child in children:
+            print("\n\n\n")
             if type(child).__name__ == "QComboBox":
-                self.updateNested(entry, translation[child.objectName()], child.currentText())
+                if get: self.nestedData(entry, translation[child.objectName()], child.currentText(), not get, not set), child.setCurrentIndex(0)
+                elif set: child.setCurrentIndex(child.findText(self.nestedData(self.dbData, translation[child.objectName()], None, not get, not set)))
             elif type(child).__name__ == "QCheckBox":
-                self.updateNested(entry, translation[child.objectName()], child.isChecked())
+                if get: self.nestedData(entry, translation[child.objectName()], child.isChecked(), not get, not set), child.setChecked(False)
+                elif set: child.setChecked(self.nestedData(self.dbData, translation[child.objectName()], None, not get, not set))
             elif type(child).__name__ == "QLineEdit":
-                self.updateNested(entry, translation[child.objectName()], child.text())
-                # After getting the data, clear the field for use on another sensor
-                child.clear()
+                if get: self.nestedData(entry, translation[child.objectName()], child.text(), not get, not set), child.clear()
+                elif set: child.setText(self.nestedData(self.dbData, translation[child.objectName()], None, not get, not set))
             else:
                 pass
 
-            # Dont want to clear this field, but rather set it back to defualt
-            self.window.ths_module_fw.setText("15")
+        if get: self.commitData.append(entry)
 
-        for x in entry:
-            print(f"{x}:{entry[x]}")
-        self.commitData.append(entry)
-
-    def updateNested(self, target, targetKey, value):
+    def nestedData(self, target, targetKey, value, get:bool, set:bool):
+        print("-----Called nestedData-----")
+        print(f"Target Key:{targetKey}")
+        print(f"Value Var: {value}")
+        print(f"Get:{get}, Set{set}")
         for k in target.keys():
             if targetKey == k:
-                target[k] = value
-                return target
+                if set:
+                    print("preset step")
+                    target[k] = value
+                    print(f"set {target[k]} to {value}")
+                    return target
+                elif get:
+                    value = target[k]
+                    break
             elif isinstance(target[k], dict):
-                self.updateNested(target[k], targetKey, value)
+                print("Found sub dict, going deeper!")
+                value = self.nestedData(target[k], targetKey, value, get, set)
+                if (value != None) and (get): return value
+        return value
 
     def pushToDB(self):
         # Check if the user is sure, if not, end function do not grab data
@@ -188,19 +200,48 @@ class mainUI():
         self.commitQueueWindow.list_commit.takeItem(index)
         self.commitData.pop(index)
         print(self.commitData)
+        if len(self.commitData) <= 0: self.window.PushtoDB.setEnabled(False)
 
     def searchForEntry(self, serialNumber:str):
         print(serialNumber)
         db = mongoHandler()
+        self.dbData = []
         self.dbData = db.getCollection(serialNumber)
         displaySN = []
         for entry in self.dbData:
-            print(entry)
             displaySN.append(entry["destCollection"] + " --> SN:" + entry["Serial_Number"] + f"  [{entry['Date_of_Entry']}]")
+        self.searchResults.label.setText(f"{len(displaySN)} Results Found:")
         self.searchResults.search_list.addItems(displaySN)
         self.searchResults.exec()
         self.searchResults.search_list.clear()
 
+    def loadEntry(self, index:int):
+        # Check if the user is sure, if not, end function do not grab data
+        if self.contWindow.exec() == 0: return
+
+        # Clear out all other entries from mem. apart from the one we want to load
+        self.dbData = self.dbData[index]
+        type:str = self.dbData["destCollection"]
+        match type:
+            case "FS":
+                pass
+            case "THS":
+                self.window.tabWidget.setCurrentIndex(1)
+                # Open the template JSON structures and pass it along to the functionn to be changed
+                with open(os.path.join(self._absDIR, '_templateStructs', 'ths_translation.json'), 'r') as jsonFile:
+                            ths_translation = json.loads(jsonFile.read())
+                self.childrenData(children=self.window.THS_scroll_area_contents.children(), template=None, translation=ths_translation, get=False, set=True)
+
+        self.window.ns_rma.setText(self.dbData["SVC_Details"]["NS_RMA"])
+        self.window.ns_customer_entry.setText(self.dbData["SVC_Details"]["NS_Customer"])
+        self.window.ns_so.setText(self.dbData["SVC_Details"]["NS_Parts_SO"])
+        self.window.jira_ticket_entry.setText(self.dbData["SVC_Details"]["Jira_Ticket"])
+        self.window.svcComments.setText(self.dbData["SVC_Details"]["Service_Comments"])
+        self.window.tech.setText(self.dbData["SVC_Details"]["Tech"])
+        self.window.ths_module_fw.setText(self.dbData["SVC_Details"]["Incoming_and_Visual"]["00-THS-3_FW_Ver"])
+
+        # Use the method for getting/setting child data and fill in fields
+        # Manually fill in the non-itterable fields
 
 
 

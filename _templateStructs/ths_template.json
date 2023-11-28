@@ -6,7 +6,7 @@
         "NS_RMA": "RMA0000",
         "NS_Customer": "CUSTOMER",
         "NS_Parts_SO": "SO00000",
-        "Jira_Tiket": "CST-0000",
+        "Jira_Ticket": "CST-0000",
         "THS_Sensor_Info": {
           "00-THS-3_Serial_Number": "000000",
           "Incoming_Status": "Preventative Maintenance"
@@ -18,9 +18,9 @@
           "Cleaned": false
         },
         "Calibration_and_Servicing": {
-          "Icoming_RH": "Pass",
+          "Incoming_RH": "Pass",
           "Incoming_Temp": "Pass",
-          "Required_Repairs": false,
+          "Required_Repairs": "None",
           "RH_Calibrated": false,
           "Builentins_Used": false,
           "Active_Current_Pass": false,

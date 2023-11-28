@@ -13,8 +13,8 @@
     "ths_builentins_used":"Builentins_Used",
     "ths_active_current":"Active_Current_Pass",
     "ths_filter":"Filter_Replaced",
-    "ths_desiccant":"Desciccant_Replaced",
+    "ths_desiccant":"Desiccant_Replaced",
     "ths_rh_calibration_pass":"RH_Calibration_Pass",
-    "ths_temp_calibration":"Temp_calibration_Pass",
+    "ths_temp_calibration":"Temp_Calibration_Pass",
     "ths_ctm":"CTM_Installed"
 }
