@@ -19,7 +19,7 @@
   <property name="minimumSize">
    <size>
     <width>250</width>
-    <height>250</height>
+    <height>550</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -1141,8 +1141,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>1012</width>
-               <height>718</height>
+               <width>1027</width>
+               <height>751</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_15">
@@ -1901,6 +1901,18 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
         <property name="tabChangesFocus">
          <bool>false</bool>
         </property>
@@ -2002,7 +2014,7 @@
      <x>0</x>
      <y>0</y>
      <width>1441</width>
-     <height>24</height>
+     <height>37</height>
     </rect>
    </property>
    <property name="nativeMenuBar">
