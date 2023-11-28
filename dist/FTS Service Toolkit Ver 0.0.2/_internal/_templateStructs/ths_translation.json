@@ -1,0 +1,20 @@
+{
+    "ths_sn":"Serial_Number",
+    "ths_module_sn":"00-THS-3_Serial_Number",
+    "ths_incoming_status":"Incoming_Status",
+    "ths_initial_verification":"Passed_Checks",
+    "ths_module_fw":"00-THS-3_FW_Ver",
+    "ths_visual":"Visual_Complete",
+    "ths_cleaning":"Cleaned",
+    "ths_incoming_rh":"Incoming_RH",
+    "ths_incoming_temp":"Incoming_Temp",
+    "ths_repairs_required":"Required_Repairs",
+    "ths_rh_calibration":"RH_Calibrated",
+    "ths_builentins_used":"Builentins_Used",
+    "ths_active_current":"Active_Current_Pass",
+    "ths_filter":"Filter_Replaced",
+    "ths_desiccant":"Desiccant_Replaced",
+    "ths_rh_calibration_pass":"RH_Calibration_Pass",
+    "ths_temp_calibration":"Temp_Calibration_Pass",
+    "ths_ctm":"CTM_Installed"
+}

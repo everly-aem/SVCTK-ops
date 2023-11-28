@@ -107,7 +107,14 @@ class mainUI():
 
         match signal:
             case 0:
-                pass
+                with open(os.path.join(self._absDIR, '_templateStructs', 'fs_template.json'), 'r') as jsonFile:
+                            fs_template = json.loads(jsonFile.read())
+                with open(os.path.join(self._absDIR, '_templateStructs', 'fs_translation.json'), 'r') as jsonFile:
+                            fs_translation = json.loads(jsonFile.read())
+
+                self.getNonItterable(fs_template)
+                self.childrenData(children=self.window.fs_scroll_area_contents.children() , template=fs_template, translation=fs_translation, get=True, set=False)
+
             case 1:
                 # Open the template JSON structures and pass it along to the functionn to be changed
                 with open(os.path.join(self._absDIR, '_templateStructs', 'ths_template.json'), 'r') as jsonFile:
@@ -115,17 +122,9 @@ class mainUI():
                 with open(os.path.join(self._absDIR, '_templateStructs', 'ths_translation.json'), 'r') as jsonFile:
                             ths_translation = json.loads(jsonFile.read())
 
-                # Get non-itterable items first
-                ths_template["Date_of_Entry"] = self.todaysDate
-                ths_template["SVC_Details"]["NS_RMA"] = self.window.ns_rma.text()
-                ths_template["SVC_Details"]["NS_Customer"] = self.window.ns_customer_entry.text()
-                ths_template["SVC_Details"]["NS_Parts_SO"] = self.window.ns_so.text()
-                ths_template["SVC_Details"]["Jira_Ticket"] = self.window.jira_ticket_entry.text()
-                ths_template["SVC_Details"]["Service_Comments"] = self.window.svcComments.toPlainText()
-                ths_template["SVC_Details"]["Warranty_Status"] = self.window.warranty_status.currentText()
-                ths_template["SVC_Details"]["Tech"] = self.window.tech.text()
-
+                self.getNonItterable(ths_template)
                 self.childrenData(children=self.window.THS_scroll_area_contents.children(), template=ths_template, translation=ths_translation, get=True, set=False)
+
             case _:
                 pass
 
@@ -143,6 +142,18 @@ class mainUI():
         self.updateDate()
         self.taskCompleteWindow.exec()
 
+    def getNonItterable(self, template):
+        # Get common/non-itterable elements
+        template["Date_of_Entry"] = self.todaysDate
+        template["SVC_Details"]["NS_RMA"] = self.window.ns_rma.text()
+        template["SVC_Details"]["NS_Customer"] = self.window.ns_customer_entry.text()
+        template["SVC_Details"]["NS_Parts_SO"] = self.window.ns_so.text()
+        template["SVC_Details"]["Jira_Ticket"] = self.window.jira_ticket_entry.text()
+        template["SVC_Details"]["Service_Comments"] = self.window.svcComments.toPlainText()
+        template["SVC_Details"]["Warranty_Status"] = self.window.warranty_status.currentText()
+        template["SVC_Details"]["Tech"] = self.window.tech.text()
+        return template
+
     def childrenData(self, children, template, translation, get:bool, set:bool):
         if get: entry:dict = template
 
@@ -157,6 +168,9 @@ class mainUI():
             elif type(child).__name__ == "QLineEdit":
                 if get: self.nestedData(entry, translation[child.objectName()], child.text(), not get, not set), child.clear()
                 elif set: child.setText(self.nestedData(self.dbData, translation[child.objectName()], None, not get, not set))
+            elif type(child).__name__ == "QPlainTextEdit":
+                if get: self.nestedData(entry, translation[child.objectName()], child.toPlainText(), not get, not set), child.clear()
+                elif set: child.setPlainText(self.nestedData(self.dbData, translation[child.objectName()], None, not get, not set))
             else:
                 pass
 
@@ -224,7 +238,11 @@ class mainUI():
         type:str = self.dbData["destCollection"]
         match type:
             case "FS":
-                pass
+                self.window.tabWidget.setCurrentIndex(0)
+                with open(os.path.join(self._absDIR, '_templateStructs', 'fs_translation.json'), 'r') as jsonFile:
+                            fs_translation = json.loads(jsonFile.read())
+                self.childrenData(children=self.window.fs_scroll_area_contents.children(), template=None, translation=fs_translation, get=False, set=True)
+
             case "THS":
                 self.window.tabWidget.setCurrentIndex(1)
                 # Open the template JSON structures and pass it along to the functionn to be changed

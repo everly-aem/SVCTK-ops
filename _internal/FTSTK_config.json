@@ -1,0 +1,29 @@
+{
+    "DB": {
+    "connStr":"mongodb://myUserAdmin:BzC0ldBr3w!@10.100.0.114:27017/?authMechanism=DEFAULT",
+    "dbName":"SVC_Reports",
+    "collectionNames":[
+        "THS",
+        "FS"
+    ]
+    },
+
+    "USER": {
+        "name":null
+    },
+
+    "APP_PREF": {
+
+    },
+
+    "Build": {
+        "Dev": true,
+        "Debug": true,
+        "Alpha": false,
+        "Beta": false,
+        "RC": false,
+        "FullRelease": false,
+        "Version": "0.0.1",
+        "Build": "20231127DB0.0.1"
+    }
+}

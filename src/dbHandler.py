@@ -7,7 +7,7 @@ class mongoHandler:
     def __init__(self):
         # Get cfg information and setup vars for use
         _absDIR = os.getcwd()
-        with open(os.path.join(_absDIR, 'FTSTK_config.json'), 'r') as jsonFile:
+        with open(os.path.join(_absDIR, '_internal/', 'FTSTK_config.json'), 'r') as jsonFile:
                     self.cfg = json.loads(jsonFile.read())
 
         self.connectionString:str = self.cfg["DB"]["connStr"]

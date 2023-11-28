@@ -292,7 +292,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="fs_tab">
          <attribute name="title">
@@ -304,18 +304,18 @@
             <property name="widgetResizable">
              <bool>true</bool>
             </property>
-            <widget class="QWidget" name="scrollAreaWidgetContents_8">
+            <widget class="QWidget" name="fs_scroll_area_contents">
              <property name="geometry">
               <rect>
                <x>0</x>
-               <y>0</y>
+               <y>-92</y>
                <width>1012</width>
                <height>843</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_13">
               <item row="16" column="1">
-               <widget class="QComboBox" name="comboBox_63">
+               <widget class="QComboBox" name="fs_incoming_rh">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -340,7 +340,7 @@
                </widget>
               </item>
               <item row="10" column="1">
-               <widget class="QLineEdit" name="lineEdit_35">
+               <widget class="QLineEdit" name="fs_module_fw">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -428,7 +428,7 @@
                </widget>
               </item>
               <item row="22" column="1">
-               <widget class="QComboBox" name="comboBox_64">
+               <widget class="QComboBox" name="fs_dowel">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -476,14 +476,14 @@
                </widget>
               </item>
               <item row="19" column="1">
-               <widget class="QCheckBox" name="checkBox_67">
+               <widget class="QCheckBox" name="fs_current_pass">
                 <property name="text">
                  <string>Yes</string>
                 </property>
                </widget>
               </item>
               <item row="17" column="3">
-               <widget class="QComboBox" name="comboBox_65">
+               <widget class="QComboBox" name="fs_rh_cal">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -520,7 +520,7 @@
                </widget>
               </item>
               <item row="9" column="3">
-               <widget class="QCheckBox" name="checkBox_71">
+               <widget class="QCheckBox" name="fs_visual_complete">
                 <property name="text">
                  <string>Yes</string>
                 </property>
@@ -632,7 +632,7 @@
                </widget>
               </item>
               <item row="21" column="3">
-               <widget class="QCheckBox" name="checkBox_66">
+               <widget class="QCheckBox" name="fs_temp_cal_pass">
                 <property name="text">
                  <string>Passed</string>
                 </property>
@@ -653,7 +653,7 @@
                </widget>
               </item>
               <item row="20" column="1">
-               <widget class="QCheckBox" name="checkBox_72">
+               <widget class="QCheckBox" name="fs_desiccant">
                 <property name="text">
                  <string>Yes</string>
                 </property>
@@ -675,7 +675,7 @@
                </widget>
               </item>
               <item row="2" column="3">
-               <widget class="QComboBox" name="comboBox_69">
+               <widget class="QComboBox" name="fs_incoming_status">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
                   <horstretch>0</horstretch>
@@ -717,7 +717,7 @@
                </widget>
               </item>
               <item row="17" column="1">
-               <widget class="QComboBox" name="comboBox_70">
+               <widget class="QComboBox" name="fs_repairs_required">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -737,7 +737,7 @@
                </widget>
               </item>
               <item row="9" column="1">
-               <widget class="QComboBox" name="comboBox_66">
+               <widget class="QComboBox" name="fs_initial_verification">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -770,7 +770,7 @@
                </spacer>
               </item>
               <item row="16" column="3">
-               <widget class="QComboBox" name="comboBox_68">
+               <widget class="QComboBox" name="fs_incoming_temp">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -809,7 +809,7 @@
                </widget>
               </item>
               <item row="20" column="3">
-               <widget class="QCheckBox" name="checkBox_68">
+               <widget class="QCheckBox" name="fs_rh_cal_pass">
                 <property name="text">
                  <string>Passed</string>
                 </property>
@@ -876,7 +876,7 @@
                </widget>
               </item>
               <item row="18" column="1">
-               <widget class="QComboBox" name="comboBox_67">
+               <widget class="QComboBox" name="fs_builentins">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -912,7 +912,7 @@
                </widget>
               </item>
               <item row="21" column="1">
-               <widget class="QCheckBox" name="checkBox_69">
+               <widget class="QCheckBox" name="fs_ctm">
                 <property name="text">
                  <string>Yes</string>
                 </property>
@@ -989,7 +989,7 @@
                </spacer>
               </item>
               <item row="10" column="3">
-               <widget class="QCheckBox" name="checkBox_65">
+               <widget class="QCheckBox" name="fs_cleaning_complete">
                 <property name="text">
                  <string>Yes</string>
                 </property>
@@ -1039,7 +1039,7 @@
                </widget>
               </item>
               <item row="19" column="3">
-               <widget class="QCheckBox" name="checkBox_70">
+               <widget class="QCheckBox" name="fs_filter">
                 <property name="text">
                  <string>Yes</string>
                 </property>
@@ -1067,7 +1067,7 @@
                </widget>
               </item>
               <item row="11" column="1">
-               <widget class="QPlainTextEdit" name="plainTextEdit">
+               <widget class="QPlainTextEdit" name="fs_incoming_notes">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1092,7 +1092,7 @@
                </widget>
               </item>
               <item row="3" column="1">
-               <widget class="QLineEdit" name="lineEdit_33">
+               <widget class="QLineEdit" name="fs_module_sn">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
