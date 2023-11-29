@@ -19,6 +19,7 @@ from PyQt6 import (
 )
 import platform, logging, sys, datetime, os, json
 from src.dbHandler import mongoHandler
+from src.pdfGenerator import MakePDF
 
 
 ###########
@@ -62,6 +63,7 @@ class mainUI():
         self.commitQueueWindow.remove_from_queue.clicked.connect(lambda: self.removeFromQueue(self.commitQueueWindow.list_commit.currentRow()))
         self.loadSNWindow.buttonBox.accepted.connect(lambda: self.searchForEntry(self.loadSNWindow.sn.text()))
         self.searchResults.buttonBox.accepted.connect(lambda: self.loadEntry(self.searchResults.search_list.currentRow()))
+        self.searchResults.generate_report.clicked.connect(lambda: self.generatePDFreport(self.searchResults.search_list.currentRow()))
 
         #Establish toolbar connectors
         self.window.actionSettings.triggered.connect(lambda: self.showFromToolbar(signal=0))
@@ -253,6 +255,12 @@ class mainUI():
         # Use the method for getting/setting child data and fill in fields
         # Manually fill in the non-itterable fields
 
+    def generatePDFreport(self, index:int):
+        # Show a window that the report is being generated
+        data = self.dbData[index]
+        generator = MakePDF()
+        rc = generator.render(data["destCollection"], data, self.todaysDate)
+        print(rc)
 
 
 

@@ -16,6 +16,11 @@
 
     },
 
+    "PDF_PREF": {
+        "Output_DIR":"/Users/everlylarche/Desktop/",
+        "Engine_Location":"/usr/local/bin/wkhtmltopdf"
+    },
+
     "Build": {
         "Dev": true,
         "Debug": true,

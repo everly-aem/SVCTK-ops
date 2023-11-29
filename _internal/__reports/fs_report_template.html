@@ -31,6 +31,7 @@
             
             img {
                 display: inline-block;
+                margin: 10px;
             }
 
             div {
@@ -39,65 +40,134 @@
 
             table {
                 border: 2px solid black;
+                font-size: 18px;
+                width: 100%;
             }
 
             th {
                 border: 1px solid black;
-                background-color: rgba(244,145,29,0.4);
-                padding: 2px;
+                background-color: rgba(255, 242, 0,0.4);
+                width: 25%;
+                text-align: left;
             }
 
             td {
                 border: 1px solid black;
                 background-color: lightgrey;
-                padding: 2px;
+                width: 25%;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .contact {
+                margin-top: 10px;
+                margin-left: 10cm;
+                justify-content: right;
             }
 
             .header_elements {
-                vertical-align: top;
-                margin-top: -10px;
+                margin-top: 20px;
                 margin-bottom: auto;
                 margin-left: 10px;
+                display: block;
+                font-family: 'MPLUS1-Regular';
             }
 
             .ERP_Information {
                 margin-top: 20px;
+                width: 100%;
             }
 
             .Sensor_info {
                 margin-top: 0px;
+                display: block;
+                width: 100%;
             }
 
-            .Incoming_and_Visual {
+            .Work_CheckList {
                 margin-top: 20px;
+                width: 45%;
+                vertical-align: top;
             }
 
             .Calibration_and_Servicing {
                 margin-top: 20px;
+                width: 45%;
+                padding-left: 15px;
+                border-left: 2px solid black;
+                vertical-align: top;
+            }
+
+            .Incoming_Notes {
+                margin-top: 20px;
+                vertical-align: top;
+                display: block;
+            }
+
+            .Components {
+                width: 45%;
+                margin-top: 20px;
+                vertical-align: top;
+            }
+
+            .Other_Service_Details {
+                width: 45%;
+                margin-top: 20px;
+                padding-left: 15px;
+                border-left: 2px solid black;
+                vertical-align: top;
+            }
+
+            .comment_box {
+                border: 1px solid black;
+            }
+
+            .spacer_horz {
+                background-color: white;
+                border: none;
+                width: 10px;
+            }
+
+            .spacer_vert {
+                background-color: white;
+                border: none;
+                height: 10px;
+                width: 100%;
             }
         </style>
     </head>
     <header>
         <img src="data:image/png;base64,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", alt="FTS Endoresed Image", height="100px", width="150px">
+        <div class="contact">
+            <p class="biggerText">
+                1065 Henry Eng. Pl.<br>
+                Langford BC, Canada<br>
+                V9B 6B2<br><br>
+
+                <strong>Email:</strong> fts-techsupport@aem.eco<br>
+                <strong>USA Phone:</strong> +1 (301) 250-4221<br>
+                <strong>Canada Phone:</strong> +1 (778) 715-7050
+            </p>
+        </div>
         <div class="header_elements">
-            <h1 class="headding">FTS Service Report: Fuel Stick</h1>
-            <h4 class="subheadding">for Serial Number:{{ data["Serial_Number"] }} serviced on:{{ data["Date_of_Entry"] }}</h4>
+            <h1 class="headding">Service Report: Fuel Stick</h1>
         </div>
     </header>
     <body>
         <div class="ERP_Information">
             <table>
                 <tr>
-                    <th>NetSuite RMA#</th>
-                    <th>NetSuite Customer Number</th>
-                    <th>NetSuite Sales Order#</th>
-                    <th>Jira Ticket</th>
+                    <th>Serial Number</th><td>{{ data["Serial_Number"] }}</td><td class="spacer_horz"></td><th>Date of Service</th><td>{{ data["Date_of_Entry"] }}</td>
                 </tr>
+                <tr class="spacer_vert"></tr>
                 <tr>
-                    <td>{{ data["SVC_Details"]["NS_RMA"] }}</td>
-                    <td>{{ data["SVC_Details"]["NS_Customer"] }}</td>
-                    <td>{{ data["SVC_Details"]["NS_Parts_SO"] }}</td>
-                    <td>{{ data["SVC_Details"]["Jira_Ticket"] }}</td>
+                    <th>RMA#</th><td>{{ data["SVC_Details"]["NS_RMA"] }}</td><td class="spacer_horz"></td><th>Support Ticket</th><td>{{ data["SVC_Details"]["Jira_Ticket"] }}</td>
+                </tr>
+                <tr class="spacer_vert"></tr>
+                <tr>
+                    <th>Sales Order Number</th><td>{{ data["SVC_Details"]["NS_Parts_SO"] }}</td><td class="spacer_horz"></td><th>Customer Number</th><td>{{ data["SVC_Details"]["NS_Customer"] }}</td>
                 </tr>
             </table>
             <hr>
@@ -107,99 +177,57 @@
             <h4>Sensor Information</h4>
             <table>
                 <tr>
-                    <th>Serial Number</th>
-                    <th>Module Serial Number</th>
-                    <th>Model</th>
-                    <th>Incoming Status</th>
-                </tr>
-                <tr>
-                    <td>{{ data["Serial_Number"] }}</td>
-                    <td>{{ data["SVC_Details"]["THS_Sensor_Info"]["00-THS-3_Serial_Number"] }}</td>
-                    <td>{{ data["SVC_Details"]["THS_Sensor_Info"]["Model_Option"] }}</td>
-                    <td>{{ data["SVC_Details"]["THS_Sensor_Info"]["Incoming_Status"] }}</td>
+                    <th>Internal Module Serial Number</th><td>{{ data["SVC_Details"]["THS_Sensor_Info"]["00-THS-3_Serial_Number"] }}</td><td class="spacer_horz"></td><th>THS Model</th><td>{{ data["SVC_Details"]["THS_Sensor_Info"]["Model_Option"] }}</td>
                 </tr>
             </table>
+
+            <p>This sensor was received for the following operation: <strong>{{ data["SVC_Details"]["THS_Sensor_Info"]["Incoming_Status"] }}</strong></p>
         </div>
-        <div class="Incoming_and_Visual">
-            <h4>Incoming and Visual Inspections</h4>
-            <table>
-                <tr>
-                    <th>Initial Checks</th>
-                    <td>{{ data["SVC_Details"]["Incoming_and_Visual"]["Passed_Checks"] }}</td>
-                </tr>
-                <tr>
-                    <th>00-THS-3 Firmware Version</th>
-                    <td>{{ data["SVC_Details"]["Incoming_and_Visual"]["00-THS-3_FW_Ver"] }}</td>
-                </tr>
-                <tr>
-                    <th>Visual inspection was completed?</th>
-                    <td>{{ data["SVC_Details"]["Incoming_and_Visual"]["Visual_Complete"] }}</td>
-                </tr>
-                <tr>
-                    <th>Sensor was cleaned?</th>
-                    <td>{{ data["SVC_Details"]["Incoming_and_Visual"]["Cleaned"] }}</td>
-                </tr>
-                <tr>
-                    <th>Tech notes on the incoming status</th>
-                    <td>{{ data["SVC_Details"]["Incoming_and_Visual"]["Incoming_Notes"] }}</td>
-                </tr>
-            </table>
+        <div class="Incoming_Notes">
+            <p><strong>Additional Notes on the Incoming Condition of the Sensor:</strong></p>
+            <p class="comment_box" style="width: 75%;">{{ data["SVC_Details"]["Incoming_and_Visual"]["Incoming_Notes"] }}</p>
+        </div>
+        <div class="Work_CheckList">
+            <h4>Service Work Checklist</h4>
+            <ul>
+                <li><strong>Initial Checks:</strong> {{ data["SVC_Details"]["Incoming_and_Visual"]["Passed_Checks"] }}</li>
+                <li><strong>Internal Module Firmware Updated to version:</strong> {{ data["SVC_Details"]["Incoming_and_Visual"]["00-THS-3_FW_Ver"] }}</li>
+                <li><strong>Full Visual Inspection of the Sensor:</strong> {% if data["SVC_Details"]["Incoming_and_Visual"]["Visual_Complete"] %} Completed by the Tech {% else %} Was not completed {% endif %}</li>
+                <li><strong>Thorough Cleaning of the Sensor:</strong> {% if data["SVC_Details"]["Incoming_and_Visual"]["Cleaned"]%} Completed {% else %} Not Completed{%endif%}</li>
+                <li><strong>Cable-To-Module Srews:</strong> {% if data["SVC_Details"]["Calibration_and_Servicing"]["CTM_Installed"] %}Installed{% else %}Not Installed{% endif %}</li>
+                <li><Strong>Builentins Referenced for repairs:</Strong> {{data["SVC_Details"]["Calibration_and_Servicing"]["Builentins_Used"]}}</li>
+            </ul>
         </div>
         <div class="Calibration_and_Servicing">
-            <h4>Calibration and Servicing</h4>
-            <table>
-                <tr>
-                    <th>Incoming Releative Humidity Test</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["Incoming_RH"] }}</td>
-                </tr>
-                <tr>
-                    <th>Incoming Temperature Test</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["Incoming_Temp"] }}</td>
-                </tr>
-                <tr>
-                    <th>Sensor Require Repairs?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["Required_Repairs"] }}</td>
-                </tr>
-                <tr>
-                    <th>Relaive Humidity Re-Calibrated?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["RH_Calibrated"] }}</td>
-                </tr>
-                <tr>
-                    <th>Service Builentins Referenced?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["Builentins_Used"] }}</td>
-                </tr>
-                <tr>
-                    <th>Active Current Test Passed?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["Active_Current_Pass"] }}</td>
-                </tr>
-                <tr>
-                    <th>Porex Filter Replaced?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["Filter_Replaced"] }}</td>
-                </tr>
-                <tr>
-                    <th>Desiccant Packet Replaced?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["Desiccant_Replaced"] }}</td>
-                </tr>
-                <tr>
-                    <th>Relative Humidity Passed Calibration?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["RH_Calibration_Pass"] }}</td>
-                </tr>
-                <tr>
-                    <th>Temperature Passed Calibration?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["Temp_Calibration_Pass"] }}</td>
-                </tr>
-                <tr>
-                    <th>Cable-To-Module Screws Installed?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["CTM_Installed"] }}</td>
-                </tr>
-                <tr>
-                    <th>Dowel Replaced?</th>
-                    <td>{{ data["SVC_Details"]["Calibration_and_Servicing"]["Dowel_Replaced"] }}</td>
-                </tr>
-            </table>
+            <h4>Calibration Checklist</h4>
+            <ul>
+                <li><strong>Incoming Humidity Test:</strong> {{ data["SVC_Details"]["Calibration_and_Servicing"]["Incoming_RH"] }}</li>
+                <li><strong>Incoming Temperature Test:</strong> {{ data["SVC_Details"]["Calibration_and_Servicing"]["Incoming_Temp"] }}</li>
+                <li><strong>Repairs:</strong> {{ data["SVC_Details"]["Calibration_and_Servicing"]["Required_Repairs"] }}</li>
+                <li><strong>Active Current Test:</strong> {% if data["SVC_Details"]["Calibration_and_Servicing"]["Active_Current_Pass"]%} Passed {% else %} Failed {% endif %}</li>
+                <li><strong>Humidity Callibration:</strong> {% if data["SVC_Details"]["Calibration_and_Servicing"]["RH_Calibration_Pass"] %}Passed, within +/-2%{% else %}Failed{% endif %}</li>
+                <li><strong>Temperature Calibration:</strong> {% if data["SVC_Details"]["Calibration_and_Servicing"]["Temp_Calibration_Pass"] %}Passed, within +/-0.2C{% else %}Failed{% endif %}</li>
+            </ul>
+        </div>
+        <div class="Components">
+            <h4>Component Verification or Replacement Checklist</h4>
+            <ul>
+                <li><strong>Humidity Wafer: </strong> {% if 'Wafer' in data["SVC_Details"]["Calibration_and_Servicing"]["RH_Calibrated"] %}Replaced{% else %}Replacement not needed{% endif %}</li>
+                <li><strong>Porex Filter:</strong> {% if data["SVC_Details"]["Calibration_and_Servicing"]["Filter_Replaced"] %}Replaced{% else %}Not Replaced{% endif %}</li>
+                <li><strong>Desiccant Packet:</strong> {% if data["SVC_Details"]["Calibration_and_Servicing"]["Desiccant_Replaced"] %}Replaced{% else %}Not Replaced{% endif %}</li>
+                <li><Strong>Dowel:</Strong> {% if data["SVC_Details"]["Calibration_and_Servicing"]["Dowel_Replaced"] %}Replaced{% else %}Replacement not needed{% endif %}</li>
+            </ul>
         </div>
         <div class="Other_Service_Details">
-            <h4>Other Service Details and Notes</h4>
+            <h4>Service Notes:</h4>
+            <p class="comment_box">
+                {{ data["SVC_Details"]["Service_Comments"] }} <br>
+                <br>
+            </p>
         </div>
+        <p>
+            <strong>Warranty Status:</strong> {{ data["SVC_Details"]["Warranty_Status"] }}<br>
+            <strong>Tech:</strong> {{ data["SVC_Details"]["Tech"] }}
+        </p>
     </body>
 </html>
