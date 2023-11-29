@@ -7,7 +7,7 @@
         "NS_Customer": "CUSTOMER",
         "NS_Parts_SO": "SO00000",
         "Jira_Ticket": "CST-0000",
-        "THS_Sensor_Info": {
+        "FS_Sensor_Info": {
           "00-THS-3_Serial_Number": "000000",
           "Model_Option":"FS-X-X",
           "Incoming_Status": "Preventative Maintenance"

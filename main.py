@@ -2,8 +2,8 @@
 
 # Title: FTS Service Toolkit Main File
 # Author: Everly Larche - Integrations Specalist
-# Rev: NR - WIP
-# Date: 2023-11-03
+# Rev: 0.0.3
+# Date: 2023-11-28
 
 # This souce is not designed to be read by the end user
 
@@ -158,7 +158,6 @@ class mainUI():
         if get: entry:dict = template
 
         for child in children:
-            print("\n\n\n")
             if type(child).__name__ == "QComboBox":
                 if get: self.nestedData(entry, translation[child.objectName()], child.currentText(), not get, not set), child.setCurrentIndex(0)
                 elif set: child.setCurrentIndex(child.findText(self.nestedData(self.dbData, translation[child.objectName()], None, not get, not set)))
@@ -177,22 +176,15 @@ class mainUI():
         if get: self.commitData.append(entry)
 
     def nestedData(self, target, targetKey, value, get:bool, set:bool):
-        print("-----Called nestedData-----")
-        print(f"Target Key:{targetKey}")
-        print(f"Value Var: {value}")
-        print(f"Get:{get}, Set{set}")
         for k in target.keys():
             if targetKey == k:
                 if set:
-                    print("preset step")
                     target[k] = value
-                    print(f"set {target[k]} to {value}")
                     return target
                 elif get:
                     value = target[k]
                     break
             elif isinstance(target[k], dict):
-                print("Found sub dict, going deeper!")
                 value = self.nestedData(target[k], targetKey, value, get, set)
                 if (value != None) and (get): return value
         return value
@@ -212,7 +204,7 @@ class mainUI():
     def removeFromQueue(self, index:int):
         print(index)
         self.commitQueueWindow.list_commit.takeItem(index)
-        self.commitData.pop(index)
+        if len(self.commitData) > 0: self.commitData.pop(index)
         print(self.commitData)
         if len(self.commitData) <= 0: self.window.PushtoDB.setEnabled(False)
 

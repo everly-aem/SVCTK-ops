@@ -1,0 +1,62 @@
+@page {
+    size: 21cm 29.7cm;
+    margin: 30mm 45mm 30mm 45mm;
+     /* change the margins as you want them to be. */
+}
+/*
+@font-face {
+    font-family: 'MPLUS1-Regular';
+    src: url('___fonts/MPLUS1-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'MPLUS1-Light';
+    src: local('___fonts/MPLUS1-Light.ttf');
+}
+*/
+h1 {
+    margin-bottom: 0px;
+    /*font-family: 'MPLUS1-Regular';*/
+}
+
+h4 {
+    /*font-family: 'MPLUS1-Light';*/
+    margin-top: 2px;
+    vertical-align: text-top;
+}
+/*
+body {
+    font-family: 'MPLUS1-Regular';
+}
+*/
+img {
+    display: inline-block;
+}
+
+div {
+    display: inline-block;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(2,82,138,0.75);
+  }
+
+tr:nth-child(odd) {
+    background-color: rgba(244,145,29,0.75);
+    
+}
+
+.header_elements {
+    vertical-align: top;
+    margin-top: -10px;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+
+.ERP_Information {
+    margin-top: 20px;
+}
+
+.Sensor_info {
+    margin-top: 0px;
+}
