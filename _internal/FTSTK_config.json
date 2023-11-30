@@ -1,32 +1,29 @@
 {
-    "DB": {
-    "db_connection_str":"mongodb://myUserAdmin:BzC0ldBr3w!@10.100.0.114:27017/?authMechanism=DEFAULT",
-    "db_name":"SVC_Reports",
-    "db_collection_names":[
-        "THS",
-        "FS"
-    ],
-    "db_access":3
-    },
-
-    "APP_PREF": {
-        "app_tech":"Test Account",
-        "app_start_tab":0
-    },
-
-    "PDF_PREF": {
-        "pdf_output":"/Users/everlylarche/Desktop/",
-        "pdf_engine":"/usr/local/bin/wkhtmltopdf"
-    },
-
-    "Build": {
-        "Dev": true,
-        "Debug": true,
-        "Alpha": false,
-        "Beta": false,
-        "RC": false,
-        "FullRelease": false,
-        "Version": "0.0.1",
-        "Build": "20231127DB0.0.1"
-    }
+      "DB": {
+            "db_connection_str": "mongodb://myUserAdmin:BzC0ldBr3w!@10.100.0.114:27017/?authMechanism=DEFAULT",
+            "db_name": "SVC_Reports",
+            "db_collection_names": [
+                  "THS",
+                  "FS"
+            ],
+            "db_access": 3
+      },
+      "APP_PREF": {
+            "app_tech": "Everly's Testing Account",
+            "app_start_tab": 0
+      },
+      "PDF_PREF": {
+            "pdf_output": "/Users/everlylarche/Desktop/",
+            "pdf_engine": "/usr/local/bin/wkhtmltopdf"
+      },
+      "Build": {
+            "Dev": true,
+            "Debug": true,
+            "Alpha": false,
+            "Beta": false,
+            "RC": false,
+            "FullRelease": false,
+            "Version": "0.0.1",
+            "Build": "20231127DB0.0.1"
+      }
 }

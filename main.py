@@ -65,10 +65,10 @@ class mainUI():
         self.loadSNWindow.buttonBox.accepted.connect(lambda: self.searchForEntry(self.loadSNWindow.sn.text()))
         self.searchResults.buttonBox.accepted.connect(lambda: self.loadEntry(self.searchResults.search_list.currentRow()))
         self.searchResults.generate_report.clicked.connect(lambda: self.generatePDFreport(self.searchResults.search_list.currentRow()))
-        self.loadSettingsWindow.save_settings.clicked.connect(lambda: self.saveAndUpdateSettings())
+        self.loadSettingsWindow.save_settings.clicked.connect(lambda: self.loadSettings(True))
 
         #Establish toolbar connectors
-        self.window.actionSettings.triggered.connect(lambda: self.loadSettings())
+        self.window.actionSettings.triggered.connect(lambda: self.loadSettings(False))
         self.window.actionLoad_SN.triggered.connect(lambda: self.showFromToolbar(signal=1))
         self.window.actionCommit_Queue.triggered.connect(lambda: self.showFromToolbar(signal=2))
 
@@ -91,8 +91,6 @@ class mainUI():
         match signal:
             case 0:
                 self.loadSettingsWindow.exec() #exec function are BLOCKING
-            case 1:
-                endCode:int = self.loadSNWindow.exec()
             case 2:
                 displaySN = []
                 for items in self.commitData:
@@ -277,8 +275,8 @@ class mainUI():
         finally:
             app.restoreOverrideCursor()
 
-    def loadSettings(self):
-        with open(os.path.join(self._absDIR, '_internal', 'FTSTK_config.json')) as configFile:
+    def loadSettings(self, set:bool):
+        with open(os.path.join(self._absDIR, '_internal', 'FTSTK_config.json'), 'r') as configFile:
             config = json.loads(configFile.read())
 
         # Unpact only the required items from the configuration file as smaller dicts
@@ -289,50 +287,36 @@ class mainUI():
         for widget in widgets.keys():
             print(widget.objectName())
             if widget.objectName() in SETTING:
+                # widgets[widget] returns the widgets TYPE as str
                 match widgets[widget]:
                     case 'QLineEdit':
-                        widget.setText(SETTING[widget.objectName()])
+                        if set: SETTING[widget.objectName()] = widget.text()
+                        else: widget.setText(SETTING[widget.objectName()])
 
                     case 'QComboBox':
-                        widget.setCurrentIndex(SETTING[widget.objectName()])
+                        if set: pass
+                        else: widget.setCurrentIndex(SETTING[widget.objectName()])
 
                     case 'QListWidget':
                         for item in SETTING[widget.objectName()]:
-                            widget.addItem(item)
+                            if set: pass
+                            else: widget.addItem(item)
 
                     case _:
                         pass
 
+        if set:
+            for key in SETTING.keys():
+                self.nestedData(config, key, SETTING[key], False, True)
+            print(config)
+            jsonString = json.dumps(config, indent=6)
+            print(jsonString)
+            with open(os.path.join(self._absDIR, '_internal', 'FTSTK_config.json'), 'w') as configFile:
+                configFile.write(jsonString)
 
+            self.showCompleteWindow("Settings Saved!", "Some settings may not apply until the application is restarted.")
 
-
-        self.loadSettingsWindow.exec()
-
-    def saveAndUpdateSettings(self, set:bool):
-        with open(os.path.join(self._absDIR, '_internal', 'FTSTK_config.json')) as configFile:
-            config = json.loads(configFile.read())
-
-        DB = config["DB"]
-        APP_PREF = config["APP_PREF"]
-        PDF_PREF = config["PDF_PREF"]
-
-        types = (QtCore.QtObject.QLineEdit, QtCore.QObject.QComboBox, QtCore.QObject.QListWidget)
-
-        for key,value in DB:
-            for childType in types:
-                if set: pass
-                #self.loadSettingsWindow.settingsLayout.findChild(childType, key)
-        for x in APP_PREF:
-            if set: pass
-            pass
-        for x in PDF_PREF:
-            if set: pass
-            pass
-
-        for childType in types:
-            match childType.__name__:
-                case 'QLineEdit':
-                    pass
+        else: self.loadSettingsWindow.exec()
 
     def layoutWidgets(self, layout):
         # Empty dict to store all the elements in
