@@ -41,11 +41,11 @@
     <set>QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="title">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>20</y>
+     <y>10</y>
      <width>371</width>
      <height>41</height>
     </rect>
@@ -60,13 +60,13 @@
     <string>{Task completeion status here}</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="message">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>90</y>
+     <y>150</y>
      <width>321</width>
-     <height>111</height>
+     <height>81</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -79,6 +79,25 @@
     <string>{Task detail here}</string>
    </property>
    <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="icon">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>60</y>
+     <width>71</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../assets/checkmark.png</pixmap>
+   </property>
+   <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>

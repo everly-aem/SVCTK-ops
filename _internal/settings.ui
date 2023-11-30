@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>646</width>
+    <width>686</width>
     <height>739</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>646</width>
+    <width>686</width>
     <height>739</height>
    </size>
   </property>
@@ -30,15 +30,118 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>621</width>
+     <width>665</width>
      <height>711</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_3">
+   <layout class="QGridLayout" name="settingsLayout">
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_5">
       <property name="text">
-       <string>PDF Report Output Folder (Secondary)</string>
+       <string>Default Tech Initials</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>PDF Report Output Folder</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Active Database Collections</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="2">
+     <widget class="QPushButton" name="save_settings">
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Save Settings</string>
+      </property>
+     </widget>
+    </item>
+    <item row="14" column="2">
+     <widget class="QPushButton" name="cancel_change">
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Database Access Level</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="0">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Prefered Startup Tab</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="3">
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>FTS Service Reporting Toolkit - Settings</string>
       </property>
      </widget>
     </item>
@@ -58,20 +161,21 @@
       </property>
      </spacer>
     </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="lineEdit"/>
-    </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="label_6">
+    <item row="9" column="0">
+     <widget class="QLabel" name="label_7">
       <property name="text">
-       <string>Database Access Level</string>
+       <string>Login String (no change required for tech level)</string>
       </property>
      </widget>
     </item>
-    <item row="6" column="1">
-     <widget class="QLineEdit" name="lineEdit_3"/>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>WKHTMLTOPDF Engine Location</string>
+      </property>
+     </widget>
     </item>
-    <item row="10" column="0">
+    <item row="12" column="0">
      <spacer name="verticalSpacer_4">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -84,8 +188,40 @@
       </property>
      </spacer>
     </item>
+    <item row="10" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Database Name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="11" column="1" colspan="2">
+     <widget class="QListWidget" name="db_collection_names"/>
+    </item>
+    <item row="10" column="1" colspan="2">
+     <widget class="QLineEdit" name="db_db_name"/>
+    </item>
     <item row="8" column="1">
-     <widget class="QComboBox" name="comboBox_2">
+     <widget class="QComboBox" name="db_access">
+      <property name="maximumSize">
+       <size>
+        <width>100</width>
+        <height>16777215</height>
+       </size>
+      </property>
       <item>
        <property name="text">
         <string>Tech</string>
@@ -108,102 +244,37 @@
       </item>
      </widget>
     </item>
-    <item row="12" column="1">
-     <widget class="QPushButton" name="cancel_change">
-      <property name="text">
-       <string>Cancel</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="11" column="1">
-     <widget class="QPushButton" name="save_settings">
-      <property name="text">
-       <string>Save Settings</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>PDF Report Output Folder (Primary)</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Default Tech Initials</string>
-      </property>
-     </widget>
+    <item row="9" column="1" colspan="2">
+     <widget class="QLineEdit" name="db_connection_str"/>
     </item>
     <item row="5" column="1">
-     <widget class="QComboBox" name="comboBox"/>
-    </item>
-    <item row="1" column="0">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
+     <widget class="QComboBox" name="app_start_tab">
+      <property name="maximumSize">
        <size>
-        <width>20</width>
-        <height>10</height>
+        <width>200</width>
+        <height>16777215</height>
        </size>
       </property>
-     </spacer>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLineEdit" name="lineEdit_2"/>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Prefered Startup Tab</string>
-      </property>
+      <item>
+       <property name="text">
+        <string>Fuel Stick</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>THS</string>
+       </property>
+      </item>
      </widget>
     </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="font">
-       <font>
-        <pointsize>24</pointsize>
-        <bold>true</bold>
-        <underline>true</underline>
-       </font>
-      </property>
-      <property name="text">
-       <string>FTS Service Reporting Toolkit - Settings</string>
-      </property>
-     </widget>
+    <item row="6" column="1" colspan="2">
+     <widget class="QLineEdit" name="app_tech"/>
     </item>
-    <item row="9" column="0">
-     <widget class="QLabel" name="label_7">
-      <property name="text">
-       <string>Login String (not needed for Tech level)</string>
-      </property>
-     </widget>
+    <item row="2" column="1" colspan="2">
+     <widget class="QLineEdit" name="pdf_output"/>
     </item>
-    <item row="9" column="1">
-     <widget class="QLineEdit" name="lineEdit_4"/>
+    <item row="3" column="1" colspan="2">
+     <widget class="QLineEdit" name="pdf_engine"/>
     </item>
    </layout>
   </widget>

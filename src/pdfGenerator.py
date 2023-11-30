@@ -8,7 +8,7 @@ class MakePDF:
         with open(os.path.join('_internal', 'FTSTK_config.json')) as file:
             self.cfg = json.loads(file.read())
 
-    def render(self, type:str, data, date):
+    def render(self, type:str, data:dict, date:str):
         # Depending on what sensor type, open the correct template and fill
         env = Environment(loader=FileSystemLoader(os.path.join('_internal', '__reports')))
         match type:

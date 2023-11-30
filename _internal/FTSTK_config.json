@@ -1,24 +1,22 @@
 {
     "DB": {
-    "connStr":"mongodb://myUserAdmin:BzC0ldBr3w!@10.100.0.114:27017/?authMechanism=DEFAULT",
-    "dbName":"SVC_Reports",
-    "collectionNames":[
+    "db_connection_str":"mongodb://myUserAdmin:BzC0ldBr3w!@10.100.0.114:27017/?authMechanism=DEFAULT",
+    "db_name":"SVC_Reports",
+    "db_collection_names":[
         "THS",
         "FS"
-    ]
-    },
-
-    "USER": {
-        "name":null
+    ],
+    "db_access":3
     },
 
     "APP_PREF": {
-
+        "app_tech":"Test Account",
+        "app_start_tab":0
     },
 
     "PDF_PREF": {
-        "Output_DIR":"/Users/everlylarche/Desktop/",
-        "Engine_Location":"/usr/local/bin/wkhtmltopdf"
+        "pdf_output":"/Users/everlylarche/Desktop/",
+        "pdf_engine":"/usr/local/bin/wkhtmltopdf"
     },
 
     "Build": {

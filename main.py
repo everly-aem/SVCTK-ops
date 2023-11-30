@@ -15,7 +15,8 @@
 from PyQt6 import (
     QtWidgets,
     uic,
-    QtCore
+    QtCore,
+    QtGui
 )
 import platform, logging, sys, datetime, os, json
 from src.dbHandler import mongoHandler
@@ -47,7 +48,7 @@ class mainUI():
     _absDIR = os.getcwd()
 
     # Class Setup
-    def __init__(self):
+    def __init__(self, appREF:QtWidgets.QApplication):
         # Grab all UI elements that may be needed during startup
         self.window = uic.loadUi(os.path.join('_internal', 'mainwindow.ui'))
         self.loadSNWindow = uic.loadUi(os.path.join('_internal', 'loadSNWindow.ui'))
@@ -64,15 +65,17 @@ class mainUI():
         self.loadSNWindow.buttonBox.accepted.connect(lambda: self.searchForEntry(self.loadSNWindow.sn.text()))
         self.searchResults.buttonBox.accepted.connect(lambda: self.loadEntry(self.searchResults.search_list.currentRow()))
         self.searchResults.generate_report.clicked.connect(lambda: self.generatePDFreport(self.searchResults.search_list.currentRow()))
+        self.loadSettingsWindow.save_settings.clicked.connect(lambda: self.saveAndUpdateSettings())
 
         #Establish toolbar connectors
-        self.window.actionSettings.triggered.connect(lambda: self.showFromToolbar(signal=0))
+        self.window.actionSettings.triggered.connect(lambda: self.loadSettings())
         self.window.actionLoad_SN.triggered.connect(lambda: self.showFromToolbar(signal=1))
         self.window.actionCommit_Queue.triggered.connect(lambda: self.showFromToolbar(signal=2))
 
         # Other UI Set-up
         self.updateDate()
         self.window.date_of_entry.setText(self.todaysDate+" (Current)")
+        self.app = appREF
 
     ################
 
@@ -256,11 +259,95 @@ class mainUI():
         # Manually fill in the non-itterable fields
 
     def generatePDFreport(self, index:int):
-        # Show a window that the report is being generated
+        self.showBusy(True)
         data = self.dbData[index]
         generator = MakePDF()
         rc = generator.render(data["destCollection"], data, self.todaysDate)
-        print(rc)
+        self.showBusy(False)
+        if rc == 0: self.showCompleteWindow("Generate PDF Complete!", "Genderated PDF file was created and saved to your output foler.")
+
+    def showCompleteWindow(self, task:str, message:str):
+        self.taskCompleteWindow.title.setText(task)
+        self.taskCompleteWindow.message.setText(message)
+        self.taskCompleteWindow.exec()
+
+    def showBusy(self, TF:bool):
+        try:
+            if TF: app.setOverrideCursor(QtGui.QCursor(QtCore.Qt.CursorShape.WaitCursor))
+        finally:
+            app.restoreOverrideCursor()
+
+    def loadSettings(self):
+        with open(os.path.join(self._absDIR, '_internal', 'FTSTK_config.json')) as configFile:
+            config = json.loads(configFile.read())
+
+        # Unpact only the required items from the configuration file as smaller dicts
+        SETTING:dict = {**config["DB"], **config["APP_PREF"], **config["PDF_PREF"]}
+
+        # Set up whats needed in the UI based on the settings avaliable (ex. the collections being used)
+        widgets = self.layoutWidgets(self.loadSettingsWindow.settingsLayout)
+        for widget in widgets.keys():
+            print(widget.objectName())
+            if widget.objectName() in SETTING:
+                match widgets[widget]:
+                    case 'QLineEdit':
+                        widget.setText(SETTING[widget.objectName()])
+
+                    case 'QComboBox':
+                        widget.setCurrentIndex(SETTING[widget.objectName()])
+
+                    case 'QListWidget':
+                        for item in SETTING[widget.objectName()]:
+                            widget.addItem(item)
+
+                    case _:
+                        pass
+
+
+
+
+        self.loadSettingsWindow.exec()
+
+    def saveAndUpdateSettings(self, set:bool):
+        with open(os.path.join(self._absDIR, '_internal', 'FTSTK_config.json')) as configFile:
+            config = json.loads(configFile.read())
+
+        DB = config["DB"]
+        APP_PREF = config["APP_PREF"]
+        PDF_PREF = config["PDF_PREF"]
+
+        types = (QtCore.QtObject.QLineEdit, QtCore.QObject.QComboBox, QtCore.QObject.QListWidget)
+
+        for key,value in DB:
+            for childType in types:
+                if set: pass
+                #self.loadSettingsWindow.settingsLayout.findChild(childType, key)
+        for x in APP_PREF:
+            if set: pass
+            pass
+        for x in PDF_PREF:
+            if set: pass
+            pass
+
+        for childType in types:
+            match childType.__name__:
+                case 'QLineEdit':
+                    pass
+
+    def layoutWidgets(self, layout):
+        # Empty dict to store all the elements in
+        uiElements = {}
+
+        # For each item in the layout (up to the max in the layout), get the name of the widget and its type(class), append it to the dict and return
+        for i in range(layout.count()):
+            if type(layout.itemAt(i)).__name__ == 'QWidgetItem':
+                uiElements[layout.itemAt(i).widget()] = type(layout.itemAt(i).widget()).__name__
+
+        return uiElements
+
+
+
+
 
 
 
@@ -274,7 +361,7 @@ if __name__ == "__main__":
     if platform.system() == "Windows": app.setStyle("Fusion")
 
     #Load UI(s)
-    ui = mainUI()
+    ui = mainUI(app)
     pop = startPopUp()
 
     # Show in order the UI windows
