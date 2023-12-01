@@ -1,5 +1,6 @@
 {
     "files": [
+        "_internal/about.ui",
         "assets/icons.qrc",
         "commitQueue.ui",
         "continue.ui",

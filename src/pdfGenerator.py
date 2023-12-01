@@ -34,9 +34,9 @@ class MakePDF:
                 'footer-right':f'Report Generated on: {date}',
                 'footer-font-size': 10
         }
-        config = pdfkit.configuration(wkhtmltopdf=os.path.normpath(self.cfg["PDF_PREF"]["Engine_Location"]))
+        config = pdfkit.configuration(wkhtmltopdf=os.path.normpath(self.cfg["PDF_PREF"]["pdf_engine"]))
         try:
-            pdfkit.from_string(content, output_path=self.cfg["PDF_PREF"]["Output_DIR"]+data["Serial_Number"]+type+date+'.pdf', options=options, configuration=config)
+            pdfkit.from_string(content, output_path=self.cfg["PDF_PREF"]["pdf_output"]+data["Serial_Number"]+type+date+'.pdf', options=options, configuration=config)
         except Exception as e:
             return e
 

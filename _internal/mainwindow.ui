@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1441</width>
-    <height>1259</height>
+    <height>1197</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -24,15 +24,15 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>9999</width>
-    <height>9999</height>
+    <width>1441</width>
+    <height>1201</height>
    </size>
   </property>
   <property name="contextMenuPolicy">
    <enum>Qt::ActionsContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string>FTS Service Report Tool Kit</string>
+   <string>FTS Service Report Tool Kit 0.0.3</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -42,7 +42,7 @@
    <enum>QTabWidget::Rounded</enum>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
-   <bool>false</bool>
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -1142,7 +1142,7 @@
                <x>0</x>
                <y>0</y>
                <width>1027</width>
-               <height>751</height>
+               <height>747</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_15">
@@ -1891,6 +1891,9 @@
         <property name="text">
          <string>Commit Entry to Queue</string>
         </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item row="7" column="0" colspan="6">
@@ -2001,6 +2004,13 @@
         </property>
         <property name="text">
          <string>Push to DB</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="3">
+       <widget class="QPushButton" name="clear_all_fields">
+        <property name="text">
+         <string>Clear All Fields</string>
         </property>
        </widget>
       </item>

@@ -1,7 +1,7 @@
 {
       "DB": {
             "db_connection_str": "mongodb://myUserAdmin:BzC0ldBr3w!@10.100.0.114:27017/?authMechanism=DEFAULT",
-            "db_name": "SVC_Reports",
+            "db_db_name": "SVC_Reports",
             "db_collection_names": [
                   "THS",
                   "FS"

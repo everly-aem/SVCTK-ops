@@ -95,7 +95,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../assets/checkmark.png</pixmap>
+    <pixmap>__assets/checkmark.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

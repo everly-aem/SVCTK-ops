@@ -1,0 +1,37 @@
+{
+    "destCollection": "THS",
+      "Serial_Number": 123456,
+      "Date_of_Entry": "0000-00-00",
+      "SVC_Details": {
+        "NS_RMA": "RMA0000",
+        "NS_Customer": "CUSTOMER",
+        "NS_Parts_SO": "SO00000",
+        "Jira_Ticket": "CST-0000",
+        "THS_Sensor_Info": {
+          "00-THS-3_Serial_Number": "000000",
+          "Incoming_Status": "Preventative Maintenance"
+        },
+        "Incoming_and_Visual": {
+          "Passed_Checks": "Passed",
+          "00-THS-3_FW_Ver": 15,
+          "Visual_Complete": false,
+          "Cleaned": false
+        },
+        "Calibration_and_Servicing": {
+          "Incoming_RH": "Pass",
+          "Incoming_Temp": "Pass",
+          "Required_Repairs": "None",
+          "RH_Calibrated": false,
+          "Builentins_Used": false,
+          "Active_Current_Pass": false,
+          "Filter_Replaced": false,
+          "Desiccant_Replaced": false,
+          "RH_Calibration_Pass": false,
+          "Temp_Calibration_Pass": false,
+          "CTM_Installed": false
+        },
+        "Service_Comments": "SEVICECOMMENTS",
+        "Warranty_Status": "WARRANTY",
+        "Tech": "TECH"
+      }
+    }

@@ -177,11 +177,11 @@
             <h4>Sensor Information</h4>
             <table>
                 <tr>
-                    <th>Internal Module Serial Number</th><td>{{ data["SVC_Details"]["THS_Sensor_Info"]["00-THS-3_Serial_Number"] }}</td><td class="spacer_horz"></td><th>THS Model</th><td>{{ data["SVC_Details"]["THS_Sensor_Info"]["Model_Option"] }}</td>
+                    <th>Internal Module Serial Number</th><td>{{ data["SVC_Details"]["FS_Sensor_Info"]["00-THS-3_Serial_Number"] }}</td><td class="spacer_horz"></td><th>THS Model</th><td>{{ data["SVC_Details"]["FS_Sensor_Info"]["Model_Option"] }}</td>
                 </tr>
             </table>
 
-            <p>This sensor was received for the following operation: <strong>{{ data["SVC_Details"]["THS_Sensor_Info"]["Incoming_Status"] }}</strong></p>
+            <p>This sensor was received for the following operation: <strong>{{ data["SVC_Details"]["FS_Sensor_Info"]["Incoming_Status"] }}</strong></p>
         </div>
         <div class="Incoming_Notes">
             <p><strong>Additional Notes on the Incoming Condition of the Sensor:</strong></p>

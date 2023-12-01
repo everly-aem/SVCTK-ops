@@ -7,14 +7,14 @@ class mongoHandler:
     def __init__(self):
         # Get cfg information and setup vars for use
         _absDIR = os.getcwd()
-        with open(os.path.join(_absDIR, '_internal/', 'FTSTK_config.json'), 'r') as jsonFile:
+        with open(os.path.join(_absDIR, '_internal', 'FTSTK_config.json'), 'r') as jsonFile:
                     self.cfg = json.loads(jsonFile.read())
 
-        self.connectionString:str = self.cfg["DB"]["connStr"]
+        self.connectionString:str = self.cfg["DB"]["db_connection_str"]
 
         # Get all dbs from cfg and load into mem
         self.collectionNames = []
-        for collection in self.cfg["DB"]["collectionNames"]:
+        for collection in self.cfg["DB"]["db_collection_names"]:
             self.collectionNames.append(collection)
 
 
@@ -27,9 +27,9 @@ class mongoHandler:
             return e
 
         try:
-            db = client[self.cfg["DB"]["dbName"]] # Return the db
+            db = client[self.cfg["DB"]["db_db_name"]] # Return the db
             return db[collection]
-        except Exception as e:
+        except mc.ServerSelectionTimeoutError as e:
             # Error grabbing the db from connection, does the DB exist?
             return e
 
@@ -59,7 +59,10 @@ class mongoHandler:
         results = []
         for collection in self.collectionNames:
             print(collection)
-            dbAccesser = self.getDB(collection)
+            try:
+                dbAccesser = self.getDB(collection)
+            except Exception as e:
+                return e
             search = dbAccesser.find({"Serial_Number":searchWord})
             for entry in search:
                 results.append(entry)
