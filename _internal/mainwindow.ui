@@ -178,7 +178,10 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>SO</string>
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>SO12345</string>
         </property>
        </widget>
       </item>
@@ -204,6 +207,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="placeholderText">
+         <string>123456</string>
         </property>
        </widget>
       </item>
@@ -292,7 +298,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="fs_tab">
          <attribute name="title">
@@ -1933,7 +1939,10 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>RMA</string>
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>RMA-12345</string>
         </property>
        </widget>
       </item>
@@ -1983,10 +1992,10 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>CST-</string>
+         <string/>
         </property>
         <property name="placeholderText">
-         <string/>
+         <string>CST-1234</string>
         </property>
        </widget>
       </item>
