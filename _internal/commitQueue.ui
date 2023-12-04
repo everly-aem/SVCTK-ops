@@ -31,6 +31,10 @@
   <property name="windowTitle">
    <string>Queue</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>__assets/AEM_RGB-Symbol-Colour.png</normaloff>__assets/AEM_RGB-Symbol-Colour.png</iconset>
+  </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>

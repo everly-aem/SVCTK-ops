@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>WARNING!</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>__assets/AEM_RGB-Symbol-Colour.png</normaloff>__assets/AEM_RGB-Symbol-Colour.png</iconset>
+  </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>

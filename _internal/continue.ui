@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>__assets/AEM_RGB-Symbol-Colour.png</normaloff>__assets/AEM_RGB-Symbol-Colour.png</iconset>
+  </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
@@ -41,12 +45,12 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="title">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>20</y>
-     <width>161</width>
+     <width>361</width>
      <height>41</height>
     </rect>
    </property>
@@ -58,6 +62,9 @@
    </property>
    <property name="text">
     <string>Confirm?</string>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">

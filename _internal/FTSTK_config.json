@@ -19,11 +19,11 @@
       "Build": {
             "Dev": true,
             "Debug": true,
-            "Alpha": false,
+            "Alpha": true,
             "Beta": false,
             "RC": false,
             "FullRelease": false,
-            "Version": "0.0.1",
-            "Build": "20231127DB0.0.1"
+            "Version": "0.0.3",
+            "Build": "20231204DDA0.0.3"
       }
 }

@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>736</width>
-    <height>1005</height>
+    <height>832</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>736</width>
-    <height>1005</height>
+    <height>832</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -25,13 +25,17 @@
   <property name="windowTitle">
    <string>Settings</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>__assets/AEM_RGB-Symbol-Colour.png</normaloff>__assets/AEM_RGB-Symbol-Colour.png</iconset>
+  </property>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>10</y>
      <width>701</width>
-     <height>981</height>
+     <height>821</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="settingsLayout">

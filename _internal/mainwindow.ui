@@ -36,7 +36,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>assets/AEM_RGB-Symbol-Colour.png</normaloff>assets/AEM_RGB-Symbol-Colour.png</iconset>
+    <normaloff>__assets/AEM_RGB-Symbol-Colour.png</normaloff>__assets/AEM_RGB-Symbol-Colour.png</iconset>
   </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
@@ -1148,7 +1148,7 @@
                <x>0</x>
                <y>0</y>
                <width>1027</width>
-               <height>747</height>
+               <height>734</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_15">
@@ -2033,7 +2033,7 @@
      <x>0</x>
      <y>0</y>
      <width>1441</width>
-     <height>24</height>
+     <height>37</height>
     </rect>
    </property>
    <property name="nativeMenuBar">

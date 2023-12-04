@@ -10,8 +10,6 @@
 ################################
 # Imports and required Modules #
 ################################
-
-#import rc_icons
 from PyQt6 import (
     QtWidgets,
     uic,
@@ -32,10 +30,11 @@ class myLogger():
 
     #
     # BEGIN SETUP #
-    def __init__(self, loggerName:str):
+    def __init__(self, loggerName:str)->None:
         self.logger = logging.getLogger(loggerName)
         self.logger.setLevel(logging.INFO)
 
+        # Directory for logs files to be placed into
         if not os.path.exists(os.path.join('_log')): os.mkdir(os.path.join('_log'))
 
         # Create Handlers
@@ -61,6 +60,7 @@ class myLogger():
 ################
 
 class startPopUp():
+    # Running this as own class to ensure it happens before the main window is loaded and shown
     def __init__(self):
         self.popUp = uic.loadUi(os.path.join('_internal', 'startWarning.ui'))
 
@@ -136,7 +136,7 @@ class mainUI():
             self.window.actionLoad_SN.triggered.connect(lambda: self.loadSNWindow.exec())
             self.window.actionCommit_Queue.triggered.connect(lambda: self.showFromToolbar(signal=2))
             self.window.actionClear_Fields.triggered.connect(lambda: self.clearFields(True, True))
-            self.window.actionAbout.triggered.connect(lambda: self.about.exec())
+            self.window.actionAbout.triggered.connect(lambda: self.loadAbout())
         except Exception as e:
             self.exceptionHandler(e)
             return
@@ -148,6 +148,7 @@ class mainUI():
         try:
             self.updateDate()
             self.window.date_of_entry.setText(self.todaysDate+" (Current)")
+            # Used for referencing the application object in setting os cursor
             self.app = appREF
             self.window.tech.setText(config["APP_PREF"]["app_tech"])
             self.window.tabWidget.setCurrentIndex(config["APP_PREF"]["app_start_tab"])
@@ -169,7 +170,7 @@ class mainUI():
             self.exceptionHandler(e)
             return
 
-        #Loop over each tab
+        # Loop over each tab and set the item validators per tab
         try:
             for i in range(self.window.tabWidget.count()):
                 self.logger.info(f'Setting input data validators for tabWidget index{i}')
@@ -199,6 +200,32 @@ class mainUI():
     ################
 
     # Class Functions
+    def loadAbout(self)->None:
+        '''
+        Loads build info to the About UI when opened.
+        '''
+        try:
+            with open(os.path.join('_internal', 'FTSTK_config.json')) as jsonFile:
+                config = json.loads(jsonFile.read())
+            config = config['Build']
+        except Exception as e:
+            self.exceptionHandler(e)
+
+        try:
+            self.about.application_ver.setText(config['Version'])
+            self.about.build.setText(config['Build'])
+            self.about.debug_active.setText(str(config['Debug']))
+            if not config['FullRelease']:
+                self.about.build_mode.setText('Work-in-progress Copy')
+            else:
+                self.about.build_mode.setText('Full Release')
+        except Exception as e:
+            self.exceptionHandler(e)
+            return
+
+        self.about.exec()
+        return
+
     def updateDate(self)->None:
         '''
         Updates the date when it should be refreshed.
@@ -227,6 +254,7 @@ class mainUI():
                 self.loadSNWindow.exec()
             case 2:
                 try:
+                    # Create list used to hold the information to show on UI window
                     displaySN = []
                     for items in self.commitData:
                         displaySN.append(items["destCollection"] + " --> SN:" + items["Serial_Number"])
@@ -234,7 +262,7 @@ class mainUI():
                     self.logger.info(f'Serial numbers found to display:\n{displaySN}')
                     self.commitQueueWindow.list_commit.addItems(displaySN)
                     self.commitQueueWindow.exec()
-                    self.commitQueueWindow.list_commit.clear()
+                    self.commitQueueWindow.list_commit.clear() # Must clear UI list after each use, otherwise all calls will append
                 except Exception as e:
                     self.exceptionHandler(e)
                     return
@@ -246,9 +274,11 @@ class mainUI():
         Then add the data into the queue for submission.
         '''
         self.logger.info('Adding item to the queue')
+        # Use the index of the current tab to determine what sensor type is being added to the queue
         signal:int = self.window.tabWidget.currentIndex()
 
         # Check if the user is sure, if not, end function do not grab data
+        self.contWindow.title.setText('Add to queue?')
         if self.contWindow.exec() == 0:
             self.logger.info('Add to queue aborted!')
             return
@@ -300,12 +330,11 @@ class mainUI():
             return
 
         # Clear the fields that have already been read by the ths_template
-        self.clearFields(False, True)
+        self.clearFields(False, False)
 
         # Preform other tasks when adding to the queue
         self.logger.info('PushtoDB button enabled.')
         self.window.PushtoDB.setEnabled(True)
-        self.updateDate()
         self.taskCompleteWindow.exec()
 
     def getNonItterable(self, template)->dict:
@@ -395,6 +424,7 @@ class mainUI():
         self.logger.info('Starting push to DB...')
 
         # Check if the user is sure, if not, end function do not grab data
+        self.contWindow.title.setText('Push to DB?')
         if self.contWindow.exec() == 0:
             self.logger.warning('User aborted push!')
             return
@@ -470,6 +500,7 @@ class mainUI():
         self.logger.info('Starting to load entry into UI for observation...')
 
         # Check if the user is sure, if not, end function do not grab data
+        self.contWindow.title.setText('Load Data into UI?')
         if self.contWindow.exec() == 0:
             self.logger.warning('User aborted loading data into UI!')
             return
@@ -578,6 +609,7 @@ class mainUI():
             if not set:
                 widgets = self.layoutWidgets(self.loadSettingsWindow.settingsLayout)
                 for widget in widgets.keys():
+                    self.logger.info(f'Loading widget:{widget.objectName()}')
                     if widget.objectName() in SETTING:
                         # widgets[widget] returns the widgets TYPE as str
                         match widgets[widget]:
@@ -597,7 +629,7 @@ class mainUI():
                             case _:
                                 pass
 
-                        self.loadSettingsWindow.exec()
+                self.loadSettingsWindow.exec()
         except Exception as e:
             self.exceptionHandler(e)
             return
@@ -645,6 +677,7 @@ class mainUI():
         self.logger.info('Clearing all input fields...')
 
         if showWarning:
+            self.contWindow.title.setText('Clear all fields?')
             if self.contWindow.exec() == 0:
                 self.logger.warning('User aborted the action!')
                 return
@@ -720,8 +753,8 @@ class mainUI():
         Function for handling when an exception is made.
         Places messages in both: logger & Error UI.
         '''
-        title = str(type(e).__name__)
-        message = str(e)
+        title:str = str(type(e).__name__)
+        message:str = str(e)
 
         self.logger.error(title)
         self.logger.exception(message)
