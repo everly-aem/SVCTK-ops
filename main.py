@@ -2,10 +2,11 @@
 
 # Title: FTS Service Toolkit Main File
 # Author: Everly Larche - Integrations Specalist
-# Rev: 0.0.3
-# Date: 2023-11-28
+# Rev: 0.0.4
+# Date: 2023-12-05
 
 # This souce is not designed to be read by the end user
+# This source uses open-source libraies and is not permitted to be dist. to anyone outside AEM
 
 ################################
 # Imports and required Modules #
@@ -39,7 +40,7 @@ class myLogger():
 
         # Create Handlers
         cHandle = logging.StreamHandler()
-        fHandle = logging.FileHandler(os.path.join('_log', f'FTS Toolkit Error Log - {datetime.datetime.today().strftime("%Y-%m-%d")}.txt'), 'w')
+        fHandle = logging.FileHandler(os.path.join('_log', 'FTS Toolkit Log.txt'), 'w')
 
         cHandle.setLevel(logging.INFO)
         fHandle.setLevel(logging.INFO)
@@ -90,7 +91,7 @@ class mainUI():
                 config = json.loads(file.read())
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         #
         # Grab all UI elements that may be needed during startup
@@ -109,7 +110,7 @@ class mainUI():
             self.dms = uic.loadUi(os.path.join(self._absDIR, '_internal', 'DMS.ui'))
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         #
         # Establish button connectors
@@ -126,7 +127,7 @@ class mainUI():
             self.window.clear_all_fields.clicked.connect(lambda: self.clearFields(True, True))
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         #
         #Establish toolbar connectors
@@ -141,7 +142,7 @@ class mainUI():
             self.window.actionLinks_to_DMS.triggered.connect(lambda: self.dms.exec())
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         #
         # Other UI Set-up
@@ -156,7 +157,7 @@ class mainUI():
             self.window.tabWidget.setCurrentIndex(config["APP_PREF"]["app_start_tab"])
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         #
         # Setup data validators
@@ -170,7 +171,7 @@ class mainUI():
             self.window.jira_ticket_entry.setValidator(QtGui.QRegularExpressionValidator(QtCore.QRegularExpression('CST\-[0-9][0-9][0-9][0-9]')))
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         # Loop over each tab and set the item validators per tab
         try:
@@ -190,10 +191,11 @@ class mainUI():
                         self.window.ths_module_fw.setValidator(ths3FWValidator)
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
 
         self.logger.info('Setup complete!')
+        return None
         #
         # END SETUP #
 
@@ -223,10 +225,10 @@ class mainUI():
                 self.about.build_mode.setText('Full Release')
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         self.about.exec()
-        return
+        return None
 
     def updateDate(self)->None:
         '''
@@ -235,7 +237,9 @@ class mainUI():
         '''
         self.logger.info('Updating the date')
         self.todaysDate:str = datetime.datetime.today().strftime("%Y-%m-%d")
+        self.window.date_of_entry.setText(self.todaysDate+" (Current)")
         self.logger.info(f'Update the date to: {self.todaysDate}')
+        return None
 
     def showUI(self)->None:
         '''
@@ -267,7 +271,8 @@ class mainUI():
                     self.commitQueueWindow.list_commit.clear() # Must clear UI list after each use, otherwise all calls will append
                 except Exception as e:
                     self.exceptionHandler(e)
-                    return
+                    return None
+        return None
 
     # Det. what to commit depending on tab widget index as case statement
     def addToQueue(self)->None:
@@ -283,61 +288,63 @@ class mainUI():
         self.contWindow.title.setText('Add to queue?')
         if self.contWindow.exec() == 0:
             self.logger.info('Add to queue aborted!')
-            return
-
-        try:
-            self.logger.info('Checking for valid inputs before adding to the queue...')
-            isValid = self.checkIsValidInput('')
-        except Exception as e:
-            self.exceptionHandler(e)
-            return
-
-        if isValid != 0:
-            self.logger.warning('Inputs are NOT VALID! Aborting add to queue')
-            self.error.title.setText('Invalid Inputs!')
-            self.error.message.setText('Please verify all inputs are entered correctly before continuing!')
-            self.error.exec()
-            return
-
-        self.logger.info('Inputs valid, moving on to adding information into the queue')
-        self.logger.info('Attempting to load templateStructs')
+            return None
 
         # Matching the index of the tabWidget to det. what sensor is being used
         # Try to open the files needed and grab data programtically
         try:
+            self.logger.info(f'Looking for index:{signal}')
             match signal:
                 case 0:
                     with open(os.path.join(self._absDIR, '_internal', '__templateStructs', 'fs_template.json'), 'r') as jsonFile:
-                                fs_template = json.loads(jsonFile.read())
+                                template = json.loads(jsonFile.read())
                     with open(os.path.join(self._absDIR, '_internal', '__templateStructs', 'fs_translation.json'), 'r') as jsonFile:
-                                fs_translation = json.loads(jsonFile.read())
-
-                    self.getNonItterable(fs_template)
-                    self.childrenData(children=self.window.fs_scroll_area_contents.children() , template=fs_template, translation=fs_translation, get=True, set=False)
+                                translation = json.loads(jsonFile.read())
+                    childrenToItterate = self.window.THS_scroll_area_contents.children()
 
                 case 1:
                     with open(os.path.join(self._absDIR, '_internal', '__templateStructs', 'ths_template.json'), 'r') as jsonFile:
-                                ths_template = json.loads(jsonFile.read())
+                                template = json.loads(jsonFile.read())
                     with open(os.path.join(self._absDIR, '_internal', '__templateStructs', 'ths_translation.json'), 'r') as jsonFile:
-                                ths_translation = json.loads(jsonFile.read())
+                                translation = json.loads(jsonFile.read())
 
-                    self.getNonItterable(ths_template)
-                    self.childrenData(children=self.window.THS_scroll_area_contents.children(), template=ths_template, translation=ths_translation, get=True, set=False)
+                    childrenToItterate = self.window.FS_scroll_area_contents.children()
 
                 case _:
-                    pass
+                    raise Exception('Unable to match the case!')
+
+            try:
+                self.logger.info('Checking for valid inputs before adding to the queue...')
+                isValid = self.checkIsValidInput('', self.window.is_for_swapPool.isChecked()) # Get children outside of match case
+            except Exception as e:
+                self.exceptionHandler(e)
+                return None
+
+            if not isValid:
+                self.logger.warning('Inputs are NOT VALID! Aborting add to queue')
+                self.error.title.setText('Invalid Inputs!')
+                self.error.message.setText('Please verify all inputs are entered correctly before continuing!')
+                self.error.exec()
+                return None
+
+            self.logger.info('Inputs valid, moving on to adding information into the queue')
+            self.logger.info('Attempting to load templateStructs')
+
+            self.getNonItterable(template)
+            self.childrenData(children=childrenToItterate, template=template, translation=translation, get=True, set=False)
 
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
-        # Clear the fields that have already been read by the ths_template
-        self.clearFields(False, False)
+        # Clear the fields that have been read by the ths_template
+        self.clearFields(True, False)
 
         # Preform other tasks when adding to the queue
         self.logger.info('PushtoDB button enabled.')
         self.window.PushtoDB.setEnabled(True)
         self.taskCompleteWindow.exec()
+        return None
 
     def getNonItterable(self, template)->dict:
         '''
@@ -358,7 +365,7 @@ class mainUI():
             return template
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None # Will throw another error, to be handled, user will be notified
 
     def childrenData(self, children, template, translation, get:bool, set:bool)->None:
         '''
@@ -386,13 +393,14 @@ class mainUI():
                     pass
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         try:
             if get: self.commitData.append(entry)
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
+        return None
 
     def nestedData(self, target, targetKey, value, get:bool, set:bool)->any:
         '''
@@ -448,7 +456,8 @@ class mainUI():
 
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
+        return None
 
     def removeFromQueue(self, index:int)->None:
         '''
@@ -464,7 +473,8 @@ class mainUI():
 
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
+        return None
 
     def searchForEntry(self, serialNumber:str)->None:
         '''
@@ -480,7 +490,7 @@ class mainUI():
             self.dbData = db.getCollection(serialNumber)
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         self.logger.info('Data found! Listing in UI...')
         displaySN = []
@@ -493,7 +503,8 @@ class mainUI():
             self.searchResults.search_list.clear()
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
+        return None
 
     def loadEntry(self, index:int)->None:
         '''
@@ -541,11 +552,12 @@ class mainUI():
             self.window.ths_module_fw.setText(self.dbData["SVC_Details"]["Incoming_and_Visual"]["00-THS-3_FW_Ver"])
             self.window.ths_module_fw.setEnabled(False)
 
+            self.window.date_of_entry.setText(self.dbData["Date_of_Entry"]+" (Date of Entered)")
+
         except Exception as e:
             self.exceptionHandler(e)
-
-        # Use the method for getting/setting child data and fill in fields
-        # Manually fill in the non-itterable fields
+            return None
+        return None
 
     def generatePDFreport(self, index:int)->None:
         '''
@@ -565,6 +577,7 @@ class mainUI():
             self.error.title.setText('PDF Failed!')
             self.error.message.setText(f'Failed to generate PDF... Expected RC of 0, got {rc}')
             self.error.exec()
+        return None
 
     def showCompleteWindow(self, task:str, message:str)->None:
         '''
@@ -577,6 +590,8 @@ class mainUI():
             self.taskCompleteWindow.exec()
         except Exception as e:
             self.exceptionHandler(e)
+            return None
+        return None
 
     def showBusy(self, TF:bool)->None:
         '''
@@ -634,7 +649,7 @@ class mainUI():
                 self.loadSettingsWindow.exec()
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         if set:
             try:
@@ -649,7 +664,8 @@ class mainUI():
                 self.showCompleteWindow("Settings Saved!", "Some settings may not apply until the application is restarted.")
             except Exception as e:
                 self.exceptionHandler(e)
-                return
+                return None
+        return None
 
     def layoutWidgets(self, layout)->dict:
         '''
@@ -670,7 +686,7 @@ class mainUI():
             return uiElements
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None # Show throw error and will be handled later, will show another err to the user
 
     def clearFields(self, allFields:bool, showWarning:bool)->None:
         '''
@@ -682,7 +698,7 @@ class mainUI():
             self.contWindow.title.setText('Clear all fields?')
             if self.contWindow.exec() == 0:
                 self.logger.warning('User aborted the action!')
-                return
+                return None
 
         try:
             # Getting the config to load the tech default name
@@ -690,7 +706,7 @@ class mainUI():
                 config = json.loads(file.read())
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         # Non-itterable items/common elements
         try:
@@ -698,14 +714,16 @@ class mainUI():
             self.window.ns_rma.setEnabled(True)
             self.window.ns_customer_entry.clear()
             self.window.ns_customer_entry.setEnabled(True)
-            self.window.ns_so.setText("SO")
+            self.window.ns_so.clear()
             self.window.ns_so.setEnabled(True)
-            self.window.jira_ticket_entry.setText("CST-")
+            self.window.jira_ticket_entry.clear()
             self.window.jira_ticket_entry.setEnabled(True)
             self.window.svcComments.clear()
             self.window.svcComments.setEnabled(True)
             self.window.tech.setText(config["APP_PREF"]["app_tech"])
             self.window.tech.setEnabled(True)
+
+            # This needs to be in the child section
             self.window.ths_module_fw.setText("15")
             self.window.ths_module_fw.setEnabled(True)
 
@@ -713,7 +731,7 @@ class mainUI():
 
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return None
 
         # If we are clearing ALL fields (reset to default), we need to reset every view in the tab widget (each tab)
         if allFields:
@@ -722,8 +740,9 @@ class mainUI():
             # if the type/class of the child is in (combobox, checkbox, linedit, plainTextedit) then we need to clear it out
             # if the child needs a default value, we can check its objectName against a dict and set the corresponding value
             pass
+        return None
 
-    def checkIsValidInput(self, children)->bool:
+    def checkIsValidInput(self, children, isSP:bool)->bool:
         '''
         Over all applicable fields, check inputs match the validators.
         Return T/F.
@@ -732,11 +751,11 @@ class mainUI():
         # Check inputs that are used across all tabs, all must be true otherwise return 1
         if not (
             self.window.ns_rma.hasAcceptableInput() and
-            self.window.ns_customer_entry.hasAcceptableInput() and
+            (self.window.ns_customer_entry.hasAcceptableInput() or isSP) and # either or, if SP then will still be true, but will fail if not SP and invalid
             self.window.ns_so.hasAcceptableInput() and
             self.window.jira_ticket_entry.hasAcceptableInput()
         ):
-            self.logger.warning('Exisiting checkIsValid, found something invalid!')
+            self.logger.warning('Exit checkIsValid, found something invalid!')
             return False
 
         # Checking itterable child elements of tab
@@ -748,7 +767,7 @@ class mainUI():
             return True # Otherwise, done and continue with code
         except Exception as e:
             self.exceptionHandler(e)
-            return
+            return False
 
     def exceptionHandler(self, e)->None:
         '''
@@ -763,7 +782,7 @@ class mainUI():
         self.error.title.setText(title)
         self.error.message.setText(message)
         self.error.exec()
-        return
+        return None
 
 
 #############
