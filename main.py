@@ -106,6 +106,7 @@ class mainUI():
             self.searchResults = uic.loadUi(os.path.join('_internal', 'searchResults.ui'))
             self.about = uic.loadUi(os.path.join(self._absDIR, '_internal', 'about.ui'))
             self.error = uic.loadUi(os.path.join(self._absDIR, '_internal', 'taskError.ui'))
+            self.dms = uic.loadUi(os.path.join(self._absDIR, '_internal', 'DMS.ui'))
         except Exception as e:
             self.exceptionHandler(e)
             return
@@ -137,6 +138,7 @@ class mainUI():
             self.window.actionCommit_Queue.triggered.connect(lambda: self.showFromToolbar(signal=2))
             self.window.actionClear_Fields.triggered.connect(lambda: self.clearFields(True, True))
             self.window.actionAbout.triggered.connect(lambda: self.loadAbout())
+            self.window.actionLinks_to_DMS.triggered.connect(lambda: self.dms.exec())
         except Exception as e:
             self.exceptionHandler(e)
             return
@@ -735,15 +737,15 @@ class mainUI():
             self.window.jira_ticket_entry.hasAcceptableInput()
         ):
             self.logger.warning('Exisiting checkIsValid, found something invalid!')
-            return 1
+            return False
 
         # Checking itterable child elements of tab
         try:
             for child in children:
                 if type(child).__name__ != 'QLineEdit': continue # Skip this itteration
-                if not child.hasAcceptableInputs(): return 1 # If bad input, return err
+                if not child.hasAcceptableInputs(): return False # If bad input, return err
 
-            return 0 # Otherwise, done and continue with code
+            return True # Otherwise, done and continue with code
         except Exception as e:
             self.exceptionHandler(e)
             return

@@ -1,5 +1,6 @@
 {
     "files": [
+        "DMS.ui",
         "_internal/about.ui",
         "assets/icons.qrc",
         "commitQueue.ui",

@@ -1,0 +1,21 @@
+[uiLogger] -- [INFO] -- [CodeLine:55] -- [2023-12-05 09:21:02,491] --> Logger Created, begin logging.
+[uiLogger] -- [INFO] -- [CodeLine:88] -- [2023-12-05 09:21:02,553] --> Loading configuration file.
+[uiLogger] -- [INFO] -- [CodeLine:97] -- [2023-12-05 09:21:02,553] --> Setting up UI elements
+[uiLogger] -- [INFO] -- [CodeLine:116] -- [2023-12-05 09:21:02,696] --> Creating relationships between buttons and functions
+[uiLogger] -- [INFO] -- [CodeLine:133] -- [2023-12-05 09:21:02,696] --> Creating toolbar connectors
+[uiLogger] -- [INFO] -- [CodeLine:148] -- [2023-12-05 09:21:02,696] --> Working on other UI elements
+[uiLogger] -- [INFO] -- [CodeLine:236] -- [2023-12-05 09:21:02,696] --> Updating the date
+[uiLogger] -- [INFO] -- [CodeLine:238] -- [2023-12-05 09:21:02,696] --> Update the date to: 2023-12-05
+[uiLogger] -- [INFO] -- [CodeLine:164] -- [2023-12-05 09:21:02,696] --> Setting non-itterable UI input data validators
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index0
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index1
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index2
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index3
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index4
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index5
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index6
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index7
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index8
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index9
+[uiLogger] -- [INFO] -- [CodeLine:178] -- [2023-12-05 09:21:02,697] --> Setting input data validators for tabWidget index10
+[uiLogger] -- [INFO] -- [CodeLine:196] -- [2023-12-05 09:21:02,697] --> Setup complete!
