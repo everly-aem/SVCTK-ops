@@ -1,21 +1,51 @@
-[uiLogger] -- [INFO] -- [CodeLine:56] -- [2023-12-05 14:14:40,672] --> Logger Created, begin logging.
-[uiLogger] -- [INFO] -- [CodeLine:89] -- [2023-12-05 14:14:40,735] --> Loading configuration file.
-[uiLogger] -- [INFO] -- [CodeLine:98] -- [2023-12-05 14:14:40,735] --> Setting up UI elements
-[uiLogger] -- [INFO] -- [CodeLine:117] -- [2023-12-05 14:14:40,888] --> Creating relationships between buttons and functions
-[uiLogger] -- [INFO] -- [CodeLine:134] -- [2023-12-05 14:14:40,888] --> Creating toolbar connectors
-[uiLogger] -- [INFO] -- [CodeLine:149] -- [2023-12-05 14:14:40,888] --> Working on other UI elements
-[uiLogger] -- [INFO] -- [CodeLine:238] -- [2023-12-05 14:14:40,888] --> Updating the date
-[uiLogger] -- [INFO] -- [CodeLine:241] -- [2023-12-05 14:14:40,888] --> Update the date to: 2023-12-05
-[uiLogger] -- [INFO] -- [CodeLine:165] -- [2023-12-05 14:14:40,888] --> Setting non-itterable UI input data validators
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,888] --> Setting input data validators for tabWidget index0
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index1
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index2
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index3
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index4
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index5
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index6
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index7
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index8
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index9
-[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-05 14:14:40,889] --> Setting input data validators for tabWidget index10
-[uiLogger] -- [INFO] -- [CodeLine:197] -- [2023-12-05 14:14:40,889] --> Setup complete!
+[uiLogger] -- [INFO] -- [CodeLine:56] -- [2023-12-07 06:45:05,732] --> Logger Created, begin logging.
+[uiLogger] -- [INFO] -- [CodeLine:89] -- [2023-12-07 06:45:05,763] --> Loading configuration file.
+[uiLogger] -- [INFO] -- [CodeLine:98] -- [2023-12-07 06:45:05,763] --> Setting up UI elements
+[uiLogger] -- [INFO] -- [CodeLine:117] -- [2023-12-07 06:45:05,951] --> Creating relationships between buttons and functions
+[uiLogger] -- [INFO] -- [CodeLine:134] -- [2023-12-07 06:45:05,951] --> Creating toolbar connectors
+[uiLogger] -- [INFO] -- [CodeLine:149] -- [2023-12-07 06:45:05,951] --> Working on other UI elements
+[uiLogger] -- [INFO] -- [CodeLine:238] -- [2023-12-07 06:45:05,951] --> Updating the date
+[uiLogger] -- [INFO] -- [CodeLine:241] -- [2023-12-07 06:45:05,951] --> Update the date to: 2023-12-07
+[uiLogger] -- [INFO] -- [CodeLine:165] -- [2023-12-07 06:45:05,951] --> Setting non-itterable UI input data validators
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index0
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index1
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index2
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index3
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index4
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index5
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index6
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index7
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index8
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index9
+[uiLogger] -- [INFO] -- [CodeLine:179] -- [2023-12-07 06:45:05,951] --> Setting input data validators for tabWidget index10
+[uiLogger] -- [INFO] -- [CodeLine:197] -- [2023-12-07 06:45:05,951] --> Setup complete!
+[uiLogger] -- [INFO] -- [CodeLine:615] -- [2023-12-07 06:45:13,014] --> Loading settings...
+[uiLogger] -- [INFO] -- [CodeLine:624] -- [2023-12-07 06:45:13,014] --> Unpacking settings...
+[uiLogger] -- [INFO] -- [CodeLine:682] -- [2023-12-07 06:45:13,014] --> Searching for widgets inside a layout...
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:label_5
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:label_2
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:label_15
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:label_9
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:lineEdit
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:db_password_entry_only
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:cancel_change
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:app_start_tab
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:label_11
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:save_settings
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,014] --> Loading widget:db_connection_str
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:db_db_name
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label_6
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label_14
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label_12
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label_4
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:pdf_engine
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:db_collection_names
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label_7
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:pdf_output
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label_3
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label_8
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label_10
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:label_13
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:app_tech
+[uiLogger] -- [INFO] -- [CodeLine:631] -- [2023-12-07 06:45:13,030] --> Loading widget:db_access

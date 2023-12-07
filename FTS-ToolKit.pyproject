@@ -13,6 +13,7 @@
         "searchResults.ui",
         "settings.ui",
         "src/__init__.py",
+        "src/credentialHandler.py",
         "startWarning.ui"
     ]
 }

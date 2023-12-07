@@ -9,7 +9,7 @@
             "db_access": 3
       },
       "APP_PREF": {
-            "app_tech": "Everly's Testing Account",
+            "app_tech": "Everly's Testing Account 2",
             "app_start_tab": 0
       },
       "PDF_PREF": {
@@ -24,6 +24,6 @@
             "RC": false,
             "FullRelease": false,
             "Version": "0.0.4",
-            "Build": "20231205DDA0.0.4"
+            "Build": "20231207DDA0.0.4"
       }
 }

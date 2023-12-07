@@ -3,7 +3,7 @@
 # Title: FTS Service Toolkit Main File
 # Author: Everly Larche - Integrations Specalist
 # Rev: 0.0.4
-# Date: 2023-12-05
+# Date: 2023-12-07
 
 # This souce is not designed to be read by the end user
 # This source uses open-source libraies and is not permitted to be dist. to anyone outside AEM
@@ -609,6 +609,9 @@ class mainUI():
         Either loads settings to be displayed un UI or
         takes settings entered into the UI and saves them in the applications configuration file.
         '''
+
+        # GET SET is in context for the config file
+
         self.logger.info('Loading settings...')
         try:
             with open(os.path.join(self._absDIR, '_internal', 'FTSTK_config.json'), 'r') as configFile:
@@ -623,30 +626,34 @@ class mainUI():
 
         # Set up whats needed in the UI based on the settings avaliable (ex. the collections being used)
         try:
-            if not set:
-                widgets = self.layoutWidgets(self.loadSettingsWindow.settingsLayout)
-                for widget in widgets.keys():
-                    self.logger.info(f'Loading widget:{widget.objectName()}')
-                    if widget.objectName() in SETTING:
-                        # widgets[widget] returns the widgets TYPE as str
-                        match widgets[widget]:
-                            case 'QLineEdit':
-                                if set: SETTING[widget.objectName()] = widget.text()
-                                else: widget.setText(SETTING[widget.objectName()])
+            widgets = self.layoutWidgets(self.loadSettingsWindow.settingsLayout)
+            for widget in widgets.keys():
+                self.logger.info(f'Loading widget:{widget.objectName()}')
+                if widget.objectName() in SETTING:
+                    # widgets[widget] returns the widgets TYPE as str
+                    match widgets[widget]:
+                        case 'QLineEdit':
+                            if set: SETTING[widget.objectName()] = widget.text()
+                            else: widget.setText(SETTING[widget.objectName()])
 
-                            case 'QComboBox':
+                        case 'QComboBox':
+                            if set: pass
+                            else: widget.setCurrentIndex(SETTING[widget.objectName()])
+
+                        case 'QListWidget':
+                            for item in SETTING[widget.objectName()]:
                                 if set: pass
-                                else: widget.setCurrentIndex(SETTING[widget.objectName()])
+                                else: widget.addItem(item)
 
-                            case 'QListWidget':
-                                for item in SETTING[widget.objectName()]:
-                                    if set: pass
-                                    else: widget.addItem(item)
+                        case 'QPlainTextEdit':
+                            if set: pass
+                            else: widget.insertPlainText(SETTING[widget.objectName()])
 
-                            case _:
-                                pass
+                        case _:
+                            pass
 
-                self.loadSettingsWindow.exec()
+            # Prevent opening the window again by checking not set
+            if not set: self.loadSettingsWindow.exec()
         except Exception as e:
             self.exceptionHandler(e)
             return None
