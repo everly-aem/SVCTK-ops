@@ -9,7 +9,8 @@
       },
       "APP_PREF": {
             "app_tech": "Everly's Testing Account 2",
-            "app_start_tab": 0
+            "app_start_tab": 0,
+            "app_initSetup": true
       },
       "PDF_PREF": {
             "pdf_output": "/Users/everlylarche/Desktop/",
@@ -22,7 +23,7 @@
             "Beta": false,
             "RC": false,
             "FullRelease": false,
-            "Version": "0.0.4",
-            "Build": "20231207DDA0.0.4"
+            "Version": "0.1.0",
+            "Build": "20231208DDA0.1.0"
       }
 }

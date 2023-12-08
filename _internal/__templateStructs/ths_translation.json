@@ -16,5 +16,7 @@
     "ths_desiccant":"Desiccant_Replaced",
     "ths_rh_calibration_pass":"RH_Calibration_Pass",
     "ths_temp_calibration":"Temp_Calibration_Pass",
-    "ths_ctm":"CTM_Installed"
+    "ths_ctm":"CTM_Installed",
+    "ths_incoming_notes":"Incoming_Notes",
+    "ths_model":"Model_Option"
 }

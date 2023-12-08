@@ -2,8 +2,8 @@
 
 # Title: FTS Service Toolkit Main File
 # Author: Everly Larche - Integrations Specalist
-# Rev: 0.0.4
-# Date: 2023-12-07
+# Rev: 0.1.0
+# Date: 2023-12-08
 
 # This souce is not designed to be read by the end user
 # This source uses open-source libraies and is not permitted to be dist. to anyone outside AEM
@@ -127,6 +127,7 @@ class mainUI():
             self.searchResults.generate_report.clicked.connect(lambda: self.generatePDFreport(self.searchResults.search_list.currentRow()))
             self.loadSettingsWindow.save_settings.clicked.connect(lambda: self.loadSettings(True))
             self.window.clear_all_fields.clicked.connect(lambda: self.clearFields(True, True))
+            self.window.is_for_swapPool.clicked.connect(lambda: self.swapPoolModifiers())
         except Exception as e:
             self.exceptionHandler(e)
             return None
@@ -194,6 +195,12 @@ class mainUI():
         except Exception as e:
             self.exceptionHandler(e)
             return None
+
+        # Show this pop-up if the user has not completed the initial set-up
+        if False == config['APP_PREF']['app_initSetup']:
+            self.error.title.setText('Setup Required!')
+            self.error.message.setText('Please complete the setup to access the DB. This can be done in settings!')
+            self.error.exec()
 
         self.logger.info('Setup complete!')
         return None
@@ -334,6 +341,7 @@ class mainUI():
 
             self.getNonItterable(template)
             self.childrenData(children=childrenToItterate, template=template, translation=translation, get=True, set=False)
+
 
         except Exception as e:
             self.exceptionHandler(e)
@@ -662,6 +670,7 @@ class mainUI():
 
                         case _:
                             pass
+            if set and (False == SETTING['app_initSetup']): SETTING['app_initSetup'] = True
 
             # Prevent opening the window again by checking not set
             if not set: self.loadSettingsWindow.exec()
@@ -807,6 +816,23 @@ class mainUI():
         self.error.message.setText(message)
         self.error.exec()
         return None
+
+    def swapPoolModifiers(self):
+        '''
+        When the checkbox is clicked and is true, set the fields to 0/SVC-XYZ.
+        This makes the fields a known value when they are not needed and satisfies the validators.
+        '''
+        if False == self.window.is_for_swapPool.isChecked(): return
+        tabIndex:int = self.window.tabWidget.currentIndex()
+
+        match tabIndex:
+            case 0:
+                self.window.fs_model.setCurrentIndex(4)
+
+            case 1:
+                self.window.ths_model.setCurrentIndex(4)
+
+        self.window.ns_customer_entry.setText('000000')
 
 
 #############
