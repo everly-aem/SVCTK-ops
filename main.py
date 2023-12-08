@@ -20,6 +20,7 @@ from PyQt6 import (
 import platform, logging, sys, datetime, os, json
 from src.dbHandler import mongoHandler
 from src.pdfGenerator import MakePDF
+from src.credentialHandler import internalCredHandler
 
 
 ###########
@@ -33,17 +34,17 @@ class myLogger():
     # BEGIN SETUP #
     def __init__(self, loggerName:str)->None:
         self.logger = logging.getLogger(loggerName)
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(logging.DEBUG)
 
         # Directory for logs files to be placed into
         if not os.path.exists(os.path.join('_log')): os.mkdir(os.path.join('_log'))
 
         # Create Handlers
         cHandle = logging.StreamHandler()
-        fHandle = logging.FileHandler(os.path.join('_log', 'FTS Toolkit Log.txt'), 'w')
+        fHandle = logging.FileHandler(os.path.join('_log', f'FTS Toolkit Log - {loggerName}.txt'), 'w')
 
-        cHandle.setLevel(logging.INFO)
-        fHandle.setLevel(logging.INFO)
+        cHandle.setLevel(logging.DEBUG)
+        fHandle.setLevel(logging.DEBUG)
 
         # Set the formatting
         cHandle.setFormatter(logging.Formatter(self._loggerFormat))
@@ -79,11 +80,12 @@ class mainUI():
 
     #
     # BEGIN SETUP #
-    def __init__(self, appREF:QtWidgets.QApplication, mainUILogger:logging.Logger)->None:
+    def __init__(self, appREF:QtWidgets.QApplication, mainUILogger:logging.Logger, mainDBLogger:logging.Logger)->None:
         '''
         Main setup function for the class mainUI.
         '''
         self.logger = mainUILogger
+        self.dbLogger = mainDBLogger
 
         try:
             self.logger.info('Loading configuration file.')
@@ -193,7 +195,6 @@ class mainUI():
             self.exceptionHandler(e)
             return None
 
-
         self.logger.info('Setup complete!')
         return None
         #
@@ -300,7 +301,7 @@ class mainUI():
                                 template = json.loads(jsonFile.read())
                     with open(os.path.join(self._absDIR, '_internal', '__templateStructs', 'fs_translation.json'), 'r') as jsonFile:
                                 translation = json.loads(jsonFile.read())
-                    childrenToItterate = self.window.THS_scroll_area_contents.children()
+                    childrenToItterate = self.window.FS_scroll_area_contents.children()
 
                 case 1:
                     with open(os.path.join(self._absDIR, '_internal', '__templateStructs', 'ths_template.json'), 'r') as jsonFile:
@@ -308,19 +309,20 @@ class mainUI():
                     with open(os.path.join(self._absDIR, '_internal', '__templateStructs', 'ths_translation.json'), 'r') as jsonFile:
                                 translation = json.loads(jsonFile.read())
 
-                    childrenToItterate = self.window.FS_scroll_area_contents.children()
+                    childrenToItterate = self.window.THS_scroll_area_contents.children()
 
                 case _:
                     raise Exception('Unable to match the case!')
 
             try:
                 self.logger.info('Checking for valid inputs before adding to the queue...')
-                isValid = self.checkIsValidInput('', self.window.is_for_swapPool.isChecked()) # Get children outside of match case
+                isValid = self.checkIsValidInput(childrenToItterate, self.window.is_for_swapPool.isChecked()) # Get children outside of match case
+                self.logger.debug(f'the return of checkIsValid was: {isValid}')
             except Exception as e:
                 self.exceptionHandler(e)
                 return None
 
-            if not isValid:
+            if False == isValid:
                 self.logger.warning('Inputs are NOT VALID! Aborting add to queue')
                 self.error.title.setText('Invalid Inputs!')
                 self.error.message.setText('Please verify all inputs are entered correctly before continuing!')
@@ -439,7 +441,11 @@ class mainUI():
             self.logger.warning('User aborted push!')
             return
 
-        db = mongoHandler()
+        try:
+            db = mongoHandler(self.dbLogger)
+        except Exception as e:
+            self.exceptionHandler(e)
+
         if db.pushCollection(self.commitData) != 0:
             self.logger.warning('Issue with pushing data to the DB!')
             self.error.title.setText('Issue with pushing to the DB!')
@@ -482,7 +488,11 @@ class mainUI():
         Lists all found items in the UI directly.
         '''
         self.logger.info(f'Looking for {serialNumber}')
-        db = mongoHandler()
+        try:
+            db = mongoHandler(self.dbLogger)
+        except Exception as e:
+            self.exceptionHandler(e)
+
         self.dbData = []
 
         try:
@@ -493,6 +503,7 @@ class mainUI():
             return None
 
         self.logger.info('Data found! Listing in UI...')
+        self.logger.debug(f'Data to display: {self.dbData}')
         displaySN = []
         for entry in self.dbData:
             displaySN.append(entry["destCollection"] + " --> SN:" + entry["Serial_Number"] + f"  [{entry['Date_of_Entry']}]")
@@ -610,7 +621,7 @@ class mainUI():
         takes settings entered into the UI and saves them in the applications configuration file.
         '''
 
-        # GET SET is in context for the config file
+        # GET SET is in context for the config file/keyring
 
         self.logger.info('Loading settings...')
         try:
@@ -637,7 +648,7 @@ class mainUI():
                             else: widget.setText(SETTING[widget.objectName()])
 
                         case 'QComboBox':
-                            if set: pass
+                            if set: SETTING[widget.objectName()] = widget.currentIndex()
                             else: widget.setCurrentIndex(SETTING[widget.objectName()])
 
                         case 'QListWidget':
@@ -667,6 +678,9 @@ class mainUI():
                 self.logger.info(f'JSON String to be saved: {jsonString}')
                 with open(os.path.join(self._absDIR, '_internal', 'FTSTK_config.json'), 'w') as configFile:
                     configFile.write(jsonString)
+
+                credHandler = internalCredHandler()
+                credHandler.storeSecure(self.loadSettingsWindow.db_access.currentText(), self.loadSettingsWindow.db_password_entry_only.text())
 
                 self.showCompleteWindow("Settings Saved!", "Some settings may not apply until the application is restarted.")
             except Exception as e:
@@ -756,20 +770,23 @@ class mainUI():
         '''
         self.logger.info('Checking for valid inputs on selected children...')
         # Check inputs that are used across all tabs, all must be true otherwise return 1
-        if not (
-            self.window.ns_rma.hasAcceptableInput() and
-            (self.window.ns_customer_entry.hasAcceptableInput() or isSP) and # either or, if SP then will still be true, but will fail if not SP and invalid
-            self.window.ns_so.hasAcceptableInput() and
-            self.window.jira_ticket_entry.hasAcceptableInput()
-        ):
-            self.logger.warning('Exit checkIsValid, found something invalid!')
-            return False
+        #if (
+        #    self.window.ns_rma.hasAcceptableInput() and
+        #    (self.window.ns_customer_entry.hasAcceptableInput() or isSP) and # either or, if SP then will still be true, but will fail if not SP and invalid
+        #    self.window.ns_so.hasAcceptableInput() and
+        #    self.window.jira_ticket_entry.hasAcceptableInput()
+        #):
+        #    self.logger.warning('Exit checkIsValid, found something invalid!')
+        #    return False
 
         # Checking itterable child elements of tab
         try:
             for child in children:
-                if type(child).__name__ != 'QLineEdit': continue # Skip this itteration
-                if not child.hasAcceptableInputs(): return False # If bad input, return err
+                if type(child).__name__ != 'QLineEdit':
+                    continue # Skip this itteration
+                elif False == child.hasAcceptableInput():
+                    self.logger.debug(f'Validity of data in: {child.objectName()} BAD!')
+                    return False # If bad input, return err
 
             return True # Otherwise, done and continue with code
         except Exception as e:
@@ -801,11 +818,14 @@ if __name__ == "__main__":
     uiLogger = myLogger('uiLogger')
     uiLogger = uiLogger.logger
 
+    dbLogger = myLogger('DBLogger')
+    dbLogger = dbLogger.logger
+
     app = QtWidgets.QApplication(sys.argv)
     if platform.system() == "Windows": app.setStyle("Fusion") # Allows for system theme application in WindowsOS
 
     #Load UI(s)
-    ui = mainUI(app, uiLogger)
+    ui = mainUI(app, uiLogger, dbLogger)
     pop = startPopUp()
 
     # Show in order the UI windows

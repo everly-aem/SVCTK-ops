@@ -1,2 +1,0 @@
-[uiLogger] -- [INFO] -- [2023-12-02 09:18:40,984] --> Logger Created, begin logging.
-

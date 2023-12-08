@@ -1,6 +1,0 @@
-[uiLogger] -- [INFO] -- [2023-12-02 09:21:40,322] --> Logger Created, begin logging.
-
-[uiLogger] -- [CRITICAL] -- [2023-12-02 09:21:40,322] --> crit
-
-[uiLogger] -- [INFO] -- [2023-12-02 09:21:40,374] --> Loading configuration file.
-

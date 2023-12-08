@@ -1,4 +1,0 @@
-[uiLogger] -- [INFO] -- [2023-12-02 09:23:04,396] --> Logger Created, begin logging.
-
-[uiLogger] -- [INFO] -- [2023-12-02 09:23:04,445] --> Loading configuration file.
-

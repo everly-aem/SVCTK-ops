@@ -1,25 +1,28 @@
 # This Python file uses the following encoding: utf-8
 
-import dbHandler as mongo
+from passlib.context import CryptContext
+import keyring
+#import keyring.util.platform as keyringPlatform
 
-class credentialHandler:
+# Takes the follwing fields and stores them securly inside the loacl OS password vault (windows: credential vault, macOS: keychain)
+# Entry -> 'username' or key for the password/crediential being saved
+# Password -> the raw plain password to be compaired with SCRAM on mongoDB
 
-    def __init__(self, **kwargs)->None:
-        '''
-        Initialize and take in optional kwargs:
-            Username:str
-            Password:str
-        '''
-        pass
+class internalCredHandler:
 
-    def register(self)->int:
-        pass
+    def __init__(self)->None:
+        keyring.get_keyring()
 
-    def login(self)->int:
-        pass
+        self._namespace = 'FTS_Toolkit'
 
-    def isRegistered(self)->bool:
-        pass
+        return None
 
-    def storeSecure(self)->int:
-        pass
+    def getPass(self, entry:str)->str:
+        # get the password to loginto mongoDB with
+        password = keyring.get_password(self._namespace, entry)
+        if None == password: raise Exception
+        return password
+
+    def storeSecure(self, entry:str, password:str)->int:
+        keyring.set_password(self._namespace, entry, password)
+        return 0

@@ -1,4 +1,0 @@
-[uiLogger] -- [INFO] -- [2023-12-02 09:20:50,772] --> Logger Created, begin logging.
-
-[uiLogger] -- [CRITICAL] -- [2023-12-02 09:20:50,772] --> crit
-

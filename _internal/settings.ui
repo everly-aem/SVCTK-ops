@@ -171,6 +171,9 @@
         <height>16777215</height>
        </size>
       </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
       <property name="placeholderText">
        <string>Password</string>
       </property>
@@ -634,22 +637,17 @@
       </property>
       <item>
        <property name="text">
-        <string>Tech</string>
+        <string>FTStech</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Manager</string>
+        <string>FTSmanager</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Admin</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Root</string>
+        <string>FTSadmin</string>
        </property>
       </item>
      </widget>

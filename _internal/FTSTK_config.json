@@ -1,12 +1,11 @@
 {
       "DB": {
-            "db_connection_str": "mongodb://myUserAdmin:BzC0ldBr3w!@10.100.0.114:27017/?authMechanism=DEFAULT",
             "db_db_name": "SVC_Reports",
             "db_collection_names": [
                   "THS",
                   "FS"
             ],
-            "db_access": 3
+            "db_access": 0
       },
       "APP_PREF": {
             "app_tech": "Everly's Testing Account 2",

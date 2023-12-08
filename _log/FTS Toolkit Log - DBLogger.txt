@@ -1,0 +1,73 @@
+[DBLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-08 10:37:02,377] --> Logger Created, begin logging.
+[DBLogger] -- [INFO] -- [CodeLine:12] -- [2023-12-08 10:37:04,645] --> Opening cfg file
+[DBLogger] -- [DEBUG] -- [CodeLine:17] -- [2023-12-08 10:37:04,645] --> Config read as: {'db_db_name': 'SVC_Reports', 'db_collection_names': ['THS', 'FS'], 'db_access': 0}
+[DBLogger] -- [DEBUG] -- [CodeLine:29] -- [2023-12-08 10:37:04,645] --> Level Name used: FTStech
+[DBLogger] -- [INFO] -- [CodeLine:30] -- [2023-12-08 10:37:04,645] --> Getting credential handler
+[DBLogger] -- [INFO] -- [CodeLine:34] -- [2023-12-08 10:37:04,688] --> Getting password for userLevelName
+[DBLogger] -- [DEBUG] -- [CodeLine:46] -- [2023-12-08 10:37:05,193] --> Mongo Cluster Information: {'version': '6.0.12', 'gitVersion': '21e6e8e11a45dfbdb7ca6cf95fa8c5f859e2b118', 'modules': ['enterprise'], 'allocator': 'tcmalloc', 'javascriptEngine': 'mozjs', 'sysInfo': 'deprecated', 'versionArray': [6, 0, 12, 0], 'bits': 64, 'debug': False, 'maxBsonObjectSize': 16777216, 'storageEngines': ['devnull', 'ephemeralForTest', 'inMemory', 'queryable_wt', 'wiredTiger'], 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1702060624, 16), 'signature': {'hash': b'%R\x10\x96\xbce\xdc8{\x93\x8d$\x80\xf0\x15\xbf\xe4\x9eY\xec', 'keyId': 7308935393099907077}}, 'operationTime': Timestamp(1702060624, 16)}
+[DBLogger] -- [DEBUG] -- [CodeLine:48] -- [2023-12-08 10:37:05,194] --> SVC_Reports
+[DBLogger] -- [DEBUG] -- [CodeLine:49] -- [2023-12-08 10:37:05,194] --> ['THS', 'FS']
+[DBLogger] -- [INFO] -- [CodeLine:91] -- [2023-12-08 10:37:05,194] --> Looking for collection to use...
+[DBLogger] -- [DEBUG] -- [CodeLine:97] -- [2023-12-08 10:37:05,194] --> Collection Name being searched: THS
+[DBLogger] -- [INFO] -- [CodeLine:58] -- [2023-12-08 10:37:05,194] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:61] -- [2023-12-08 10:37:05,194] --> DB grabbed!
+[DBLogger] -- [DEBUG] -- [CodeLine:103] -- [2023-12-08 10:37:05,195] --> Raw search: <pymongo.cursor.Cursor object at 0x108540f10>
+[DBLogger] -- [DEBUG] -- [CodeLine:97] -- [2023-12-08 10:37:05,221] --> Collection Name being searched: FS
+[DBLogger] -- [INFO] -- [CodeLine:58] -- [2023-12-08 10:37:05,221] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:61] -- [2023-12-08 10:37:05,221] --> DB grabbed!
+[DBLogger] -- [DEBUG] -- [CodeLine:103] -- [2023-12-08 10:37:05,221] --> Raw search: <pymongo.cursor.Cursor object at 0x1060f7410>
+[DBLogger] -- [DEBUG] -- [CodeLine:108] -- [2023-12-08 10:37:05,251] --> Results: []
+[DBLogger] -- [INFO] -- [CodeLine:12] -- [2023-12-08 10:37:11,221] --> Opening cfg file
+[DBLogger] -- [DEBUG] -- [CodeLine:17] -- [2023-12-08 10:37:11,221] --> Config read as: {'db_db_name': 'SVC_Reports', 'db_collection_names': ['THS', 'FS'], 'db_access': 0}
+[DBLogger] -- [DEBUG] -- [CodeLine:29] -- [2023-12-08 10:37:11,221] --> Level Name used: FTStech
+[DBLogger] -- [INFO] -- [CodeLine:30] -- [2023-12-08 10:37:11,221] --> Getting credential handler
+[DBLogger] -- [INFO] -- [CodeLine:34] -- [2023-12-08 10:37:11,222] --> Getting password for userLevelName
+[DBLogger] -- [DEBUG] -- [CodeLine:46] -- [2023-12-08 10:37:11,628] --> Mongo Cluster Information: {'version': '6.0.12', 'gitVersion': '21e6e8e11a45dfbdb7ca6cf95fa8c5f859e2b118', 'modules': ['enterprise'], 'allocator': 'tcmalloc', 'javascriptEngine': 'mozjs', 'sysInfo': 'deprecated', 'versionArray': [6, 0, 12, 0], 'bits': 64, 'debug': False, 'maxBsonObjectSize': 16777216, 'storageEngines': ['devnull', 'ephemeralForTest', 'inMemory', 'queryable_wt', 'wiredTiger'], 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1702060631, 1), 'signature': {'hash': b'S\xae\xcaD0\xea\x04\xc2\xf9\xc3\xfc\xfaQf\xb2\x11)\xf9\tL', 'keyId': 7308935393099907077}}, 'operationTime': Timestamp(1702060631, 1)}
+[DBLogger] -- [DEBUG] -- [CodeLine:48] -- [2023-12-08 10:37:11,629] --> SVC_Reports
+[DBLogger] -- [DEBUG] -- [CodeLine:49] -- [2023-12-08 10:37:11,629] --> ['THS', 'FS']
+[DBLogger] -- [INFO] -- [CodeLine:91] -- [2023-12-08 10:37:11,629] --> Looking for collection to use...
+[DBLogger] -- [DEBUG] -- [CodeLine:97] -- [2023-12-08 10:37:11,629] --> Collection Name being searched: THS
+[DBLogger] -- [INFO] -- [CodeLine:58] -- [2023-12-08 10:37:11,629] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:61] -- [2023-12-08 10:37:11,629] --> DB grabbed!
+[DBLogger] -- [DEBUG] -- [CodeLine:103] -- [2023-12-08 10:37:11,629] --> Raw search: <pymongo.cursor.Cursor object at 0x1060f5850>
+[DBLogger] -- [DEBUG] -- [CodeLine:97] -- [2023-12-08 10:37:11,655] --> Collection Name being searched: FS
+[DBLogger] -- [INFO] -- [CodeLine:58] -- [2023-12-08 10:37:11,655] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:61] -- [2023-12-08 10:37:11,655] --> DB grabbed!
+[DBLogger] -- [DEBUG] -- [CodeLine:103] -- [2023-12-08 10:37:11,655] --> Raw search: <pymongo.cursor.Cursor object at 0x12dd40c10>
+[DBLogger] -- [DEBUG] -- [CodeLine:108] -- [2023-12-08 10:37:11,685] --> Results: []
+[DBLogger] -- [INFO] -- [CodeLine:12] -- [2023-12-08 10:37:32,097] --> Opening cfg file
+[DBLogger] -- [DEBUG] -- [CodeLine:17] -- [2023-12-08 10:37:32,098] --> Config read as: {'db_db_name': 'SVC_Reports', 'db_collection_names': ['THS', 'FS'], 'db_access': 0}
+[DBLogger] -- [DEBUG] -- [CodeLine:29] -- [2023-12-08 10:37:32,098] --> Level Name used: FTStech
+[DBLogger] -- [INFO] -- [CodeLine:30] -- [2023-12-08 10:37:32,098] --> Getting credential handler
+[DBLogger] -- [INFO] -- [CodeLine:34] -- [2023-12-08 10:37:32,098] --> Getting password for userLevelName
+[DBLogger] -- [DEBUG] -- [CodeLine:46] -- [2023-12-08 10:37:32,579] --> Mongo Cluster Information: {'version': '6.0.12', 'gitVersion': '21e6e8e11a45dfbdb7ca6cf95fa8c5f859e2b118', 'modules': ['enterprise'], 'allocator': 'tcmalloc', 'javascriptEngine': 'mozjs', 'sysInfo': 'deprecated', 'versionArray': [6, 0, 12, 0], 'bits': 64, 'debug': False, 'maxBsonObjectSize': 16777216, 'storageEngines': ['devnull', 'ephemeralForTest', 'inMemory', 'queryable_wt', 'wiredTiger'], 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1702060652, 2), 'signature': {'hash': b'\xcc\x8bxL\xe4\xc1i\xd9\x91\xe1ac\nh\xb1\xeb\xf79\x936', 'keyId': 7308935393099907077}}, 'operationTime': Timestamp(1702060652, 2)}
+[DBLogger] -- [DEBUG] -- [CodeLine:48] -- [2023-12-08 10:37:32,580] --> SVC_Reports
+[DBLogger] -- [DEBUG] -- [CodeLine:49] -- [2023-12-08 10:37:32,580] --> ['THS', 'FS']
+[DBLogger] -- [INFO] -- [CodeLine:91] -- [2023-12-08 10:37:32,580] --> Looking for collection to use...
+[DBLogger] -- [DEBUG] -- [CodeLine:97] -- [2023-12-08 10:37:32,581] --> Collection Name being searched: THS
+[DBLogger] -- [INFO] -- [CodeLine:58] -- [2023-12-08 10:37:32,581] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:61] -- [2023-12-08 10:37:32,581] --> DB grabbed!
+[DBLogger] -- [DEBUG] -- [CodeLine:103] -- [2023-12-08 10:37:32,581] --> Raw search: <pymongo.cursor.Cursor object at 0x12dd1f5d0>
+[DBLogger] -- [DEBUG] -- [CodeLine:108] -- [2023-12-08 10:37:32,612] --> Results: [{'_id': ObjectId('65724c63c16ab37e669b60af'), 'destCollection': 'THS', 'Serial_Number': '736458', 'Date_of_Entry': '2023-12-07', 'SVC_Details': {'NS_RMA': 'RMA-1234', 'NS_Customer': '111111', 'NS_Parts_SO': 'SO99999', 'Jira_Ticket': 'CST-1234', 'THS_Sensor_Info': {'00-THS-3_Serial_Number': '723654', 'Incoming_Status': 'Preventative Maintenance'}, 'Incoming_and_Visual': {'Passed_Checks': 'Passed', '00-THS-3_FW_Ver': '15', 'Visual_Complete': False, 'Cleaned': False}, 'Calibration_and_Servicing': {'Incoming_RH': 'Pass', 'Incoming_Temp': 'Pass', 'Required_Repairs': 'None Required', 'RH_Calibrated': 'Recalibrated', 'Builentins_Used': 'None', 'Active_Current_Pass': False, 'Filter_Replaced': False, 'Desiccant_Replaced': False, 'RH_Calibration_Pass': False, 'Temp_Calibration_Pass': False, 'CTM_Installed': False}, 'Service_Comments': 'rekaugoaeurgfkyeuafk', 'Warranty_Status': 'Limited Warranty', 'Tech': "Everly's Testing Account 2"}}]
+[DBLogger] -- [INFO] -- [CodeLine:12] -- [2023-12-08 10:38:48,427] --> Opening cfg file
+[DBLogger] -- [DEBUG] -- [CodeLine:17] -- [2023-12-08 10:38:48,427] --> Config read as: {'db_db_name': 'SVC_Reports', 'db_collection_names': ['THS', 'FS'], 'db_access': 0}
+[DBLogger] -- [DEBUG] -- [CodeLine:29] -- [2023-12-08 10:38:48,427] --> Level Name used: FTStech
+[DBLogger] -- [INFO] -- [CodeLine:30] -- [2023-12-08 10:38:48,427] --> Getting credential handler
+[DBLogger] -- [INFO] -- [CodeLine:34] -- [2023-12-08 10:38:48,427] --> Getting password for userLevelName
+[DBLogger] -- [DEBUG] -- [CodeLine:46] -- [2023-12-08 10:38:48,919] --> Mongo Cluster Information: {'version': '6.0.12', 'gitVersion': '21e6e8e11a45dfbdb7ca6cf95fa8c5f859e2b118', 'modules': ['enterprise'], 'allocator': 'tcmalloc', 'javascriptEngine': 'mozjs', 'sysInfo': 'deprecated', 'versionArray': [6, 0, 12, 0], 'bits': 64, 'debug': False, 'maxBsonObjectSize': 16777216, 'storageEngines': ['devnull', 'ephemeralForTest', 'inMemory', 'queryable_wt', 'wiredTiger'], 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1702060728, 2), 'signature': {'hash': b'\xa4+\rX\x9b\xea\xcan\xc5A8VGvoV\x8d6\xdf}', 'keyId': 7308935393099907077}}, 'operationTime': Timestamp(1702060728, 2)}
+[DBLogger] -- [DEBUG] -- [CodeLine:48] -- [2023-12-08 10:38:48,919] --> SVC_Reports
+[DBLogger] -- [DEBUG] -- [CodeLine:49] -- [2023-12-08 10:38:48,920] --> ['THS', 'FS']
+[DBLogger] -- [INFO] -- [CodeLine:70] -- [2023-12-08 10:38:48,920] --> Pushing data to collection...
+[DBLogger] -- [INFO] -- [CodeLine:58] -- [2023-12-08 10:38:48,920] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:61] -- [2023-12-08 10:38:48,920] --> DB grabbed!
+[DBLogger] -- [INFO] -- [CodeLine:12] -- [2023-12-08 10:40:21,187] --> Opening cfg file
+[DBLogger] -- [DEBUG] -- [CodeLine:17] -- [2023-12-08 10:40:21,187] --> Config read as: {'db_db_name': 'SVC_Reports', 'db_collection_names': ['THS', 'FS'], 'db_access': 0}
+[DBLogger] -- [DEBUG] -- [CodeLine:29] -- [2023-12-08 10:40:21,187] --> Level Name used: FTStech
+[DBLogger] -- [INFO] -- [CodeLine:30] -- [2023-12-08 10:40:21,187] --> Getting credential handler
+[DBLogger] -- [INFO] -- [CodeLine:34] -- [2023-12-08 10:40:21,187] --> Getting password for userLevelName
+[DBLogger] -- [DEBUG] -- [CodeLine:46] -- [2023-12-08 10:40:21,656] --> Mongo Cluster Information: {'version': '6.0.12', 'gitVersion': '21e6e8e11a45dfbdb7ca6cf95fa8c5f859e2b118', 'modules': ['enterprise'], 'allocator': 'tcmalloc', 'javascriptEngine': 'mozjs', 'sysInfo': 'deprecated', 'versionArray': [6, 0, 12, 0], 'bits': 64, 'debug': False, 'maxBsonObjectSize': 16777216, 'storageEngines': ['devnull', 'ephemeralForTest', 'inMemory', 'queryable_wt', 'wiredTiger'], 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1702060821, 2), 'signature': {'hash': b'\xd6\xcb\xef\xfa9\xc5\xeb\x9b\rp97Z\x1d\xbd\x1e\x9b\x1e\x99\x1b', 'keyId': 7308935393099907077}}, 'operationTime': Timestamp(1702060821, 2)}
+[DBLogger] -- [DEBUG] -- [CodeLine:48] -- [2023-12-08 10:40:21,656] --> SVC_Reports
+[DBLogger] -- [DEBUG] -- [CodeLine:49] -- [2023-12-08 10:40:21,656] --> ['THS', 'FS']
+[DBLogger] -- [INFO] -- [CodeLine:70] -- [2023-12-08 10:40:21,657] --> Pushing data to collection...
+[DBLogger] -- [INFO] -- [CodeLine:58] -- [2023-12-08 10:40:21,657] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:61] -- [2023-12-08 10:40:21,657] --> DB grabbed!
