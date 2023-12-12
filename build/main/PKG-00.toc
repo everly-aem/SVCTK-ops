@@ -1,5 +1,5 @@
 ('\\\\Mac\\Home\\Documents\\Dev\\FTS-Tool-Kit\\build\\main\\FTS Service '
- 'Toolkit 0.0.3.pkg',
+ 'Toolkit 0.1.0.pkg',
  {'BINARY': True,
   'DATA': True,
   'EXECUTABLE': True,

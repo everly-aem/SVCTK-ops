@@ -37,13 +37,16 @@ class mongoHandler:
             self.logger.error('Unable to get password from system!')
             raise Exception
 
-        self.client = mc(
-            host='mongodb+srv://aemftscluster0.1kekelk.mongodb.net',
-            username=userLevelName,
-            password=userLevelPassword
-        )
+        try:
+            self.client = mc(
+                host='mongodb+srv://aemftscluster0.1kekelk.mongodb.net',
+                username=userLevelName,
+                password=userLevelPassword
+            )
 
-        self.logger.debug(f'Mongo Cluster Information: {self.client.server_info()}')
+            self.logger.debug(f'Mongo Cluster Information: {self.client.server_info()}')
+        except:
+            return
 
         self.logger.debug(self.cfg['db_db_name'])
         self.logger.debug(self.cfg['db_collection_names'])

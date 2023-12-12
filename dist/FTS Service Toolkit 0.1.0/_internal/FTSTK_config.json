@@ -1,0 +1,29 @@
+{
+      "DB": {
+            "db_db_name": "SVC_Reports",
+            "db_collection_names": [
+                  "THS",
+                  "FS"
+            ],
+            "db_access": 0
+      },
+      "APP_PREF": {
+            "app_tech": "TEST",
+            "app_start_tab": 0,
+            "app_initSetup": true
+      },
+      "PDF_PREF": {
+            "pdf_output": "/Users/everlylarche/Desktop/",
+            "pdf_engine": "/usr/local/bin/wkhtmltopdf"
+      },
+      "Build": {
+            "Dev": true,
+            "Debug": true,
+            "Alpha": true,
+            "Beta": false,
+            "RC": false,
+            "FullRelease": false,
+            "Version": "0.1.0",
+            "Build": "20231208DDA0.1.0"
+      }
+}

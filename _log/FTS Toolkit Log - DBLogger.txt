@@ -1,12 +1,1 @@
-[DBLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-08 12:39:09,326] --> Logger Created, begin logging.
-[DBLogger] -- [INFO] -- [CodeLine:12] -- [2023-12-08 12:39:55,216] --> Opening cfg file
-[DBLogger] -- [DEBUG] -- [CodeLine:17] -- [2023-12-08 12:39:55,217] --> Config read as: {'db_db_name': 'SVC_Reports', 'db_collection_names': ['THS', 'FS'], 'db_access': 0}
-[DBLogger] -- [DEBUG] -- [CodeLine:29] -- [2023-12-08 12:39:55,217] --> Level Name used: FTStech
-[DBLogger] -- [INFO] -- [CodeLine:30] -- [2023-12-08 12:39:55,217] --> Getting credential handler
-[DBLogger] -- [INFO] -- [CodeLine:34] -- [2023-12-08 12:39:55,547] --> Getting password for userLevelName
-[DBLogger] -- [DEBUG] -- [CodeLine:46] -- [2023-12-08 12:39:56,083] --> Mongo Cluster Information: {'version': '6.0.12', 'gitVersion': '21e6e8e11a45dfbdb7ca6cf95fa8c5f859e2b118', 'modules': ['enterprise'], 'allocator': 'tcmalloc', 'javascriptEngine': 'mozjs', 'sysInfo': 'deprecated', 'versionArray': [6, 0, 12, 0], 'bits': 64, 'debug': False, 'maxBsonObjectSize': 16777216, 'storageEngines': ['devnull', 'ephemeralForTest', 'inMemory', 'queryable_wt', 'wiredTiger'], 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1702067995, 2), 'signature': {'hash': b'\xbcqu\x02dJ\x90\x8f6A[\x12C\x9b\x8f\xf9\xf8;?M', 'keyId': 7308935393099907077}}, 'operationTime': Timestamp(1702067995, 2)}
-[DBLogger] -- [DEBUG] -- [CodeLine:48] -- [2023-12-08 12:39:56,084] --> SVC_Reports
-[DBLogger] -- [DEBUG] -- [CodeLine:49] -- [2023-12-08 12:39:56,084] --> ['THS', 'FS']
-[DBLogger] -- [INFO] -- [CodeLine:70] -- [2023-12-08 12:39:56,084] --> Pushing data to collection...
-[DBLogger] -- [INFO] -- [CodeLine:58] -- [2023-12-08 12:39:56,084] --> Getting DB...
-[DBLogger] -- [DEBUG] -- [CodeLine:61] -- [2023-12-08 12:39:56,084] --> DB grabbed!
+[DBLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-12 13:06:15,641] --> Logger Created, begin logging.

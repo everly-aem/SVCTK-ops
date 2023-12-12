@@ -353,7 +353,7 @@ class mainUI():
         # Preform other tasks when adding to the queue
         self.logger.info('PushtoDB button enabled.')
         self.window.PushtoDB.setEnabled(True)
-        self.taskCompleteWindow.exec()
+        self.showCompleteWindow("Added to Queue!", "Input fields have been cleared for another entry.")
         return None
 
     def getNonItterable(self, template)->dict:
@@ -466,7 +466,7 @@ class mainUI():
             self.commitData = []
             self.window.PushtoDB.setEnabled(False)
             self.commitQueueWindow.list_commit.clear()
-            self.taskCompleteWindow.exec()
+            self.showCompleteWindow("Pushed to DB!", "Data has been saved in the remote DB and removed from the queue.")
 
         except Exception as e:
             self.exceptionHandler(e)
@@ -833,6 +833,7 @@ class mainUI():
                 self.window.ths_model.setCurrentIndex(4)
 
         self.window.ns_customer_entry.setText('000000')
+        self.window.warranty_status.setCurrentIndex(0)
 
 
 #############
