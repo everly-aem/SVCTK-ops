@@ -1,1 +1,37 @@
-[DBLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-12 13:06:15,641] --> Logger Created, begin logging.
+[DBLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-13 14:42:46,204] --> Logger Created, begin logging.
+[DBLogger] -- [INFO] -- [CodeLine:12] -- [2023-12-13 14:42:50,676] --> Opening cfg file
+[DBLogger] -- [DEBUG] -- [CodeLine:17] -- [2023-12-13 14:42:50,676] --> Config read as: {'db_db_name': 'SVC_Reports', 'db_collection_names': ['THS', 'FS'], 'db_access': 0}
+[DBLogger] -- [DEBUG] -- [CodeLine:29] -- [2023-12-13 14:42:50,676] --> Level Name used: FTStech
+[DBLogger] -- [INFO] -- [CodeLine:30] -- [2023-12-13 14:42:50,676] --> Getting credential handler
+[DBLogger] -- [INFO] -- [CodeLine:34] -- [2023-12-13 14:42:50,723] --> Getting password for userLevelName
+[DBLogger] -- [DEBUG] -- [CodeLine:47] -- [2023-12-13 14:42:51,499] --> Mongo Cluster Information: {'version': '6.0.12', 'gitVersion': '21e6e8e11a45dfbdb7ca6cf95fa8c5f859e2b118', 'modules': ['enterprise'], 'allocator': 'tcmalloc', 'javascriptEngine': 'mozjs', 'sysInfo': 'deprecated', 'versionArray': [6, 0, 12, 0], 'bits': 64, 'debug': False, 'maxBsonObjectSize': 16777216, 'storageEngines': ['devnull', 'ephemeralForTest', 'inMemory', 'queryable_wt', 'wiredTiger'], 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1702507371, 5), 'signature': {'hash': b'\x1d\xe0\x05\x1d\x91)\xf3\xb8\xbb|kTN\x82:d\xbb@\xf2B', 'keyId': 7308935393099907077}}, 'operationTime': Timestamp(1702507371, 5)}
+[DBLogger] -- [DEBUG] -- [CodeLine:52] -- [2023-12-13 14:42:51,499] --> SVC_Reports
+[DBLogger] -- [DEBUG] -- [CodeLine:53] -- [2023-12-13 14:42:51,499] --> ['THS', 'FS']
+[DBLogger] -- [DEBUG] -- [CodeLine:59] -- [2023-12-13 14:42:51,499] --> All active collection names: ['THS', 'FS']
+[DBLogger] -- [DEBUG] -- [CodeLine:502] -- [2023-12-13 14:42:51,499] --> Should have completed DB setup now <src.dbHandler.mongoHandler object at 0x000001C88975A6D0>
+[DBLogger] -- [INFO] -- [CodeLine:96] -- [2023-12-13 14:42:51,499] --> Looking for collection to use...
+[DBLogger] -- [DEBUG] -- [CodeLine:102] -- [2023-12-13 14:42:51,499] --> Collection Name being searched: THS
+[DBLogger] -- [INFO] -- [CodeLine:63] -- [2023-12-13 14:42:51,499] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:66] -- [2023-12-13 14:42:51,499] --> DB grabbed!
+[DBLogger] -- [DEBUG] -- [CodeLine:108] -- [2023-12-13 14:42:51,499] --> Raw search: <pymongo.cursor.Cursor object at 0x000001C889758FD0>
+[DBLogger] -- [DEBUG] -- [CodeLine:113] -- [2023-12-13 14:42:51,516] --> Results: [{'_id': ObjectId('6578b082e9cafaa29dd0144d'), 'destCollection': 'THS', 'Serial_Number': '333333', 'Date_of_Entry': '2023-12-12', 'SVC_Details': {'NS_RMA': 'RMA-3333', 'NS_Customer': '000000', 'NS_Parts_SO': 'SO33333', 'Jira_Ticket': 'CST-3333', 'THS_Sensor_Info': {'00-THS-3_Serial_Number': '333333', 'Model_Option': 'SVC-THS', 'Incoming_Status': 'Other (Desc. in Comments)'}, 'Incoming_and_Visual': {'Passed_Checks': 'Passed', '00-THS-3_FW_Ver': '15', 'Visual_Complete': True, 'Cleaned': True, 'Incoming_Notes': 'comments'}, 'Calibration_and_Servicing': {'Incoming_RH': 'Pass', 'Incoming_Temp': 'Pass', 'Required_Repairs': 'None Required', 'RH_Calibrated': 'Recalibrated', 'Builentins_Used': 'None', 'Active_Current_Pass': True, 'Filter_Replaced': True, 'Desiccant_Replaced': True, 'RH_Calibration_Pass': True, 'Temp_Calibration_Pass': True, 'CTM_Installed': True}, 'Service_Comments': 'my comments', 'Warranty_Status': 'No Warranty', 'Tech': "Everly's Testing Account 2"}}]
+[DBLogger] -- [INFO] -- [CodeLine:12] -- [2023-12-13 14:43:13,771] --> Opening cfg file
+[DBLogger] -- [DEBUG] -- [CodeLine:17] -- [2023-12-13 14:43:13,771] --> Config read as: {'db_db_name': 'SVC_Reports', 'db_collection_names': ['THS', 'FS'], 'db_access': 0}
+[DBLogger] -- [DEBUG] -- [CodeLine:29] -- [2023-12-13 14:43:13,771] --> Level Name used: FTStech
+[DBLogger] -- [INFO] -- [CodeLine:30] -- [2023-12-13 14:43:13,771] --> Getting credential handler
+[DBLogger] -- [INFO] -- [CodeLine:34] -- [2023-12-13 14:43:13,771] --> Getting password for userLevelName
+[DBLogger] -- [DEBUG] -- [CodeLine:47] -- [2023-12-13 14:43:15,314] --> Mongo Cluster Information: {'version': '6.0.12', 'gitVersion': '21e6e8e11a45dfbdb7ca6cf95fa8c5f859e2b118', 'modules': ['enterprise'], 'allocator': 'tcmalloc', 'javascriptEngine': 'mozjs', 'sysInfo': 'deprecated', 'versionArray': [6, 0, 12, 0], 'bits': 64, 'debug': False, 'maxBsonObjectSize': 16777216, 'storageEngines': ['devnull', 'ephemeralForTest', 'inMemory', 'queryable_wt', 'wiredTiger'], 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1702507395, 5), 'signature': {'hash': b' m\xb2o\x1a\xcd\xd1\x01h\\\xde\xe1\xfe\xd1\xef\xca\n\x06\x89+', 'keyId': 7308935393099907077}}, 'operationTime': Timestamp(1702507395, 5)}
+[DBLogger] -- [DEBUG] -- [CodeLine:52] -- [2023-12-13 14:43:15,314] --> SVC_Reports
+[DBLogger] -- [DEBUG] -- [CodeLine:53] -- [2023-12-13 14:43:15,314] --> ['THS', 'FS']
+[DBLogger] -- [DEBUG] -- [CodeLine:59] -- [2023-12-13 14:43:15,314] --> All active collection names: ['THS', 'FS']
+[DBLogger] -- [DEBUG] -- [CodeLine:502] -- [2023-12-13 14:43:15,314] --> Should have completed DB setup now <src.dbHandler.mongoHandler object at 0x000001C8897409D0>
+[DBLogger] -- [INFO] -- [CodeLine:96] -- [2023-12-13 14:43:15,314] --> Looking for collection to use...
+[DBLogger] -- [DEBUG] -- [CodeLine:102] -- [2023-12-13 14:43:15,314] --> Collection Name being searched: THS
+[DBLogger] -- [INFO] -- [CodeLine:63] -- [2023-12-13 14:43:15,314] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:66] -- [2023-12-13 14:43:15,328] --> DB grabbed!
+[DBLogger] -- [DEBUG] -- [CodeLine:108] -- [2023-12-13 14:43:15,328] --> Raw search: <pymongo.cursor.Cursor object at 0x000001C88974D090>
+[DBLogger] -- [DEBUG] -- [CodeLine:102] -- [2023-12-13 14:43:15,344] --> Collection Name being searched: FS
+[DBLogger] -- [INFO] -- [CodeLine:63] -- [2023-12-13 14:43:15,344] --> Getting DB...
+[DBLogger] -- [DEBUG] -- [CodeLine:66] -- [2023-12-13 14:43:15,344] --> DB grabbed!
+[DBLogger] -- [DEBUG] -- [CodeLine:108] -- [2023-12-13 14:43:15,344] --> Raw search: <pymongo.cursor.Cursor object at 0x000001C888E46D90>
+[DBLogger] -- [DEBUG] -- [CodeLine:113] -- [2023-12-13 14:43:15,376] --> Results: [{'_id': ObjectId('65736d5db88e2d2f6e24796a'), 'destCollection': 'FS', 'Serial_Number': '000000', 'Date_of_Entry': '2023-12-08', 'SVC_Details': {'NS_RMA': 'RMA-0000', 'NS_Customer': '000000', 'NS_Parts_SO': 'SO00000', 'Jira_Ticket': 'CST-0000', 'FS_Sensor_Info': {'00-THS-3_Serial_Number': '000000', 'Model_Option': 'FS-3-1', 'Incoming_Status': 'Preventative Maintenance'}, 'Incoming_and_Visual': {'Passed_Checks': 'Passed', '00-THS-3_FW_Ver': '15', 'Visual_Complete': False, 'Cleaned': False, 'Incoming_Notes': 'erhgouyeargfohaegro'}, 'Calibration_and_Servicing': {'Incoming_RH': 'Pass', 'Incoming_Temp': 'Pass', 'Required_Repairs': 'None Required', 'RH_Calibrated': 'Recalibrated', 'Builentins_Used': 'None', 'Active_Current_Pass': False, 'Filter_Replaced': False, 'Desiccant_Replaced': False, 'RH_Calibration_Pass': False, 'Temp_Calibration_Pass': False, 'CTM_Installed': False, 'Dowel_Replaced': 'No'}, 'Service_Comments': 'jshegiourehasliguhaeiugfiulgrfiuheirhf', 'Warranty_Status': 'Limited Warranty', 'Tech': "Everly's Testing Account 2"}}]

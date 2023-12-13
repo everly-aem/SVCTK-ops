@@ -9,6 +9,7 @@ a = Analysis(
     ('_internal\__assets\*','__assets'),
     ('_internal\__reports\*','__reports'),
     ('_internal\__templateStructs\*','__templateStructs'),
+    ('_internal\wkhtmltox\*','wkhtmltox'),
     ('src\*', 'src')],
     hiddenimports=[],
     hookspath=[],
@@ -24,7 +25,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='FTS Service Toolkit 0.1.0',
+    name='FTS Service Toolkit 0.1.1',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -43,5 +44,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='FTS Service Toolkit 0.1.0',
+    name='FTS Service Toolkit 0.1.1',
 )

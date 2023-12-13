@@ -3,7 +3,7 @@
 # Title: FTS Service Toolkit Main File
 # Author: Everly Larche - Integrations Specalist
 # Rev: 0.1.0
-# Date: 2023-12-08
+# Date: 2023-12-12
 
 # This souce is not designed to be read by the end user
 # This source uses open-source libraies and is not permitted to be dist. to anyone outside AEM
@@ -80,12 +80,13 @@ class mainUI():
 
     #
     # BEGIN SETUP #
-    def __init__(self, appREF:QtWidgets.QApplication, mainUILogger:logging.Logger, mainDBLogger:logging.Logger)->None:
+    def __init__(self, appREF:QtWidgets.QApplication, mainUILogger:logging.Logger, mainDBLogger:logging.Logger, mainPDFLogger:logging.Logger)->None:
         '''
         Main setup function for the class mainUI.
         '''
         self.logger = mainUILogger
         self.dbLogger = mainDBLogger
+        self.pdfLogger = mainPDFLogger
 
         try:
             self.logger.info('Loading configuration file.')
@@ -498,6 +499,7 @@ class mainUI():
         self.logger.info(f'Looking for {serialNumber}')
         try:
             db = mongoHandler(self.dbLogger)
+            self.dbLogger.debug(f'Should have completed DB setup now {db}')
         except Exception as e:
             self.exceptionHandler(e)
 
@@ -585,7 +587,9 @@ class mainUI():
         self.logger.info('Generating PDF file...')
         self.showBusy(True)
         data = self.dbData[index]
-        generator = MakePDF()
+        self.logger.debug('Creating object of MakePDF')
+        generator = MakePDF(self.pdfLogger)
+        self.logger.debug('Generator created')
         rc = generator.render(data["destCollection"], data, self.todaysDate)
         self.showBusy(False)
         if rc == 0:
@@ -848,11 +852,13 @@ if __name__ == "__main__":
     dbLogger = myLogger('DBLogger')
     dbLogger = dbLogger.logger
 
+    pdfLogger = myLogger('PDFLogger').logger
+
     app = QtWidgets.QApplication(sys.argv)
     if platform.system() == "Windows": app.setStyle("Fusion") # Allows for system theme application in WindowsOS
 
     #Load UI(s)
-    ui = mainUI(app, uiLogger, dbLogger)
+    ui = mainUI(app, uiLogger, dbLogger, pdfLogger)
     pop = startPopUp()
 
     # Show in order the UI windows

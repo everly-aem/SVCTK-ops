@@ -1,5 +1,5 @@
 ('\\\\Mac\\Home\\Documents\\Dev\\FTS-Tool-Kit\\build\\main\\FTS Service '
- 'Toolkit 0.1.0.exe',
+ 'Toolkit 0.1.1.exe',
  True,
  False,
  True,
@@ -31,7 +31,7 @@
  None,
  None,
  '\\\\Mac\\Home\\Documents\\Dev\\FTS-Tool-Kit\\build\\main\\FTS Service '
- 'Toolkit 0.1.0.pkg',
+ 'Toolkit 0.1.1.pkg',
  [('pyi-contents-directory _internal', '', 'OPTION'),
   ('PYZ-00.pyz',
    '\\\\Mac\\Home\\Documents\\Dev\\FTS-Tool-Kit\\build\\main\\PYZ-00.pyz',
@@ -70,7 +70,7 @@
  [],
  False,
  False,
- 1702068566,
+ 1702508315,
  [('run.exe',
    'C:\\Users\\everlylarche\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\run.exe',
    'EXECUTABLE')],
