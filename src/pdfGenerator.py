@@ -45,7 +45,7 @@ class MakePDF:
                 'footer-right':f'Report Generated on: {date}',
                 'footer-font-size': 10
         }
-        enginePath = os.path.join(self._cwd, os.path.normpath(self.cfg['PDF_PREF']['pdf_engine']))
+        enginePath = os.path.join(self._cwd, '_internal', 'wkhtmltox', 'bin', 'wkhtmltopdf.exe')
         self.logger.debug(f'Path to engine used: {enginePath}')
         config = pdfkit.configuration(wkhtmltopdf=enginePath)
         self.logger.debug(f'Loaded config with path: {enginePath}')

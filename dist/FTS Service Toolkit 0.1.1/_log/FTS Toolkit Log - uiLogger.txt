@@ -1,21 +1,159 @@
-[uiLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-13 14:59:09,456] --> Logger Created, begin logging.
-[uiLogger] -- [INFO] -- [CodeLine:92] -- [2023-12-13 14:59:09,567] --> Loading configuration file.
-[uiLogger] -- [INFO] -- [CodeLine:101] -- [2023-12-13 14:59:09,567] --> Setting up UI elements
-[uiLogger] -- [INFO] -- [CodeLine:120] -- [2023-12-13 14:59:09,993] --> Creating relationships between buttons and functions
-[uiLogger] -- [INFO] -- [CodeLine:138] -- [2023-12-13 14:59:09,993] --> Creating toolbar connectors
-[uiLogger] -- [INFO] -- [CodeLine:153] -- [2023-12-13 14:59:10,008] --> Working on other UI elements
-[uiLogger] -- [INFO] -- [CodeLine:247] -- [2023-12-13 14:59:10,008] --> Updating the date
-[uiLogger] -- [INFO] -- [CodeLine:250] -- [2023-12-13 14:59:10,008] --> Update the date to: 2023-12-13
-[uiLogger] -- [INFO] -- [CodeLine:169] -- [2023-12-13 14:59:10,008] --> Setting non-itterable UI input data validators
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index0
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index1
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index2
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index3
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index4
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index5
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index6
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index7
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index8
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index9
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 14:59:10,008] --> Setting input data validators for tabWidget index10
-[uiLogger] -- [INFO] -- [CodeLine:206] -- [2023-12-13 14:59:14,807] --> Setup complete!
+[uiLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-13 15:18:41,537] --> Logger Created, begin logging.
+[uiLogger] -- [INFO] -- [CodeLine:92] -- [2023-12-13 15:18:41,615] --> Loading configuration file.
+[uiLogger] -- [INFO] -- [CodeLine:101] -- [2023-12-13 15:18:41,615] --> Setting up UI elements
+[uiLogger] -- [INFO] -- [CodeLine:120] -- [2023-12-13 15:18:41,897] --> Creating relationships between buttons and functions
+[uiLogger] -- [INFO] -- [CodeLine:138] -- [2023-12-13 15:18:41,897] --> Creating toolbar connectors
+[uiLogger] -- [INFO] -- [CodeLine:153] -- [2023-12-13 15:18:41,897] --> Working on other UI elements
+[uiLogger] -- [INFO] -- [CodeLine:247] -- [2023-12-13 15:18:41,897] --> Updating the date
+[uiLogger] -- [INFO] -- [CodeLine:250] -- [2023-12-13 15:18:41,897] --> Update the date to: 2023-12-13
+[uiLogger] -- [INFO] -- [CodeLine:169] -- [2023-12-13 15:18:41,897] --> Setting non-itterable UI input data validators
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index0
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index1
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index2
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index3
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index4
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index5
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index6
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index7
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index8
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index9
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:18:41,897] --> Setting input data validators for tabWidget index10
+[uiLogger] -- [INFO] -- [CodeLine:206] -- [2023-12-13 15:18:42,995] --> Setup complete!
+[uiLogger] -- [INFO] -- [CodeLine:638] -- [2023-12-13 15:18:48,168] --> Loading settings...
+[uiLogger] -- [INFO] -- [CodeLine:647] -- [2023-12-13 15:18:48,181] --> Unpacking settings...
+[uiLogger] -- [INFO] -- [CodeLine:709] -- [2023-12-13 15:18:48,181] --> Searching for widgets inside a layout...
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_5
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_2
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_15
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_9
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:lineEdit
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:db_password_entry_only
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:cancel_change
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:app_start_tab
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_11
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:save_settings
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:db_connection_str
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:db_db_name
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_6
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_14
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_12
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_4
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:pdf_engine
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:db_collection_names
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_7
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:pdf_output
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_3
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_8
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_10
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:label_13
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:app_tech
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:18:48,181] --> Loading widget:db_access
+[uiLogger] -- [INFO] -- [CodeLine:638] -- [2023-12-13 15:19:50,651] --> Loading settings...
+[uiLogger] -- [INFO] -- [CodeLine:647] -- [2023-12-13 15:19:50,651] --> Unpacking settings...
+[uiLogger] -- [INFO] -- [CodeLine:709] -- [2023-12-13 15:19:50,651] --> Searching for widgets inside a layout...
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,651] --> Loading widget:label_5
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,651] --> Loading widget:label_2
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,651] --> Loading widget:label_15
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,651] --> Loading widget:label_9
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,651] --> Loading widget:lineEdit
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,651] --> Loading widget:db_password_entry_only
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,651] --> Loading widget:cancel_change
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:app_start_tab
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_11
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:save_settings
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:db_connection_str
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:db_db_name
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_6
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_14
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_12
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_4
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:pdf_engine
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:db_collection_names
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_7
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:pdf_output
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_3
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_8
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_10
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:label_13
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:app_tech
+[uiLogger] -- [INFO] -- [CodeLine:654] -- [2023-12-13 15:19:50,663] --> Loading widget:db_access
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:421] -- [2023-12-13 15:19:50,663] --> Getting nested data...
+[uiLogger] -- [INFO] -- [CodeLine:689] -- [2023-12-13 15:19:50,663] --> New config to be saved as JSON: {'DB': {'db_db_name': 'SVC_Reports', 'db_collection_names': ['THS', 'FS'], 'db_access': 0}, 'APP_PREF': {'app_tech': '', 'app_start_tab': 0, 'app_initSetup': True}, 'PDF_PREF': {'pdf_output': '', 'pdf_engine': ''}, 'Build': {'Dev': True, 'Debug': True, 'Alpha': True, 'Beta': False, 'RC': False, 'FullRelease': False, 'Version': '0.1.1', 'Build': '20231213DDA0.1.1'}}
+[uiLogger] -- [INFO] -- [CodeLine:691] -- [2023-12-13 15:19:50,663] --> JSON String to be saved: {
+      "DB": {
+            "db_db_name": "SVC_Reports",
+            "db_collection_names": [
+                  "THS",
+                  "FS"
+            ],
+            "db_access": 0
+      },
+      "APP_PREF": {
+            "app_tech": "",
+            "app_start_tab": 0,
+            "app_initSetup": true
+      },
+      "PDF_PREF": {
+            "pdf_output": "",
+            "pdf_engine": ""
+      },
+      "Build": {
+            "Dev": true,
+            "Debug": true,
+            "Alpha": true,
+            "Beta": false,
+            "RC": false,
+            "FullRelease": false,
+            "Version": "0.1.1",
+            "Build": "20231213DDA0.1.1"
+      }
+}
+[uiLogger] -- [INFO] -- [CodeLine:609] -- [2023-12-13 15:19:50,725] --> A task completed, showing complete window
+[uiLogger] -- [INFO] -- [CodeLine:499] -- [2023-12-13 15:19:57,898] --> Looking for 999999
+[uiLogger] -- [INFO] -- [CodeLine:509] -- [2023-12-13 15:19:59,852] --> Getting from DB collection
+[uiLogger] -- [INFO] -- [CodeLine:515] -- [2023-12-13 15:19:59,899] --> Data found! Listing in UI...
+[uiLogger] -- [DEBUG] -- [CodeLine:516] -- [2023-12-13 15:19:59,899] --> Data to display: [{'_id': ObjectId('65736315a27299c36b024e5a'), 'destCollection': 'THS', 'Serial_Number': '999999', 'Date_of_Entry': '2023-12-08', 'SVC_Details': {'NS_RMA': 'RMA-7777', 'NS_Customer': '777777', 'NS_Parts_SO': 'SO77777', 'Jira_Ticket': 'CST-7777', 'THS_Sensor_Info': {'00-THS-3_Serial_Number': '999999', 'Incoming_Status': 'Preventative Maintenance'}, 'Incoming_and_Visual': {'Passed_Checks': 'Passed', '00-THS-3_FW_Ver': '15', 'Visual_Complete': False, 'Cleaned': False}, 'Calibration_and_Servicing': {'Incoming_RH': 'Pass', 'Incoming_Temp': 'Pass', 'Required_Repairs': 'None Required', 'RH_Calibrated': 'Recalibrated', 'Builentins_Used': 'None', 'Active_Current_Pass': False, 'Filter_Replaced': False, 'Desiccant_Replaced': False, 'RH_Calibration_Pass': False, 'Temp_Calibration_Pass': False, 'CTM_Installed': False}, 'Service_Comments': '', 'Warranty_Status': 'Limited Warranty', 'Tech': "Everly's Testing Account 2"}}]
+[uiLogger] -- [INFO] -- [CodeLine:587] -- [2023-12-13 15:20:02,008] --> Generating PDF file...
+[uiLogger] -- [DEBUG] -- [CodeLine:590] -- [2023-12-13 15:20:02,008] --> Creating object of MakePDF
+[uiLogger] -- [DEBUG] -- [CodeLine:592] -- [2023-12-13 15:20:02,008] --> Generator created

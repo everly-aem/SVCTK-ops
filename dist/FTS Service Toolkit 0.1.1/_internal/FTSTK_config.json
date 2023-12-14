@@ -10,7 +10,7 @@
       "APP_PREF": {
             "app_tech": "",
             "app_start_tab": 0,
-            "app_initSetup": false
+            "app_initSetup": true
       },
       "PDF_PREF": {
             "pdf_output": "",

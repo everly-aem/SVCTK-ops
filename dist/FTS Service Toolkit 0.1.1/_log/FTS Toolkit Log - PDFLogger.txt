@@ -1,1 +1,6 @@
-[PDFLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-13 14:59:09,456] --> Logger Created, begin logging.
+[PDFLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-13 15:18:41,553] --> Logger Created, begin logging.
+[PDFLogger] -- [DEBUG] -- [CodeLine:11] -- [2023-12-13 15:20:02,008] --> CWD from pdfGenerator: \\Mac\Home\Documents\Dev\FTS-Tool-Kit\dist\FTS Service Toolkit 0.1.1
+[PDFLogger] -- [DEBUG] -- [CodeLine:14] -- [2023-12-13 15:20:02,008] --> Opening Config file
+[PDFLogger] -- [DEBUG] -- [CodeLine:19] -- [2023-12-13 15:20:02,008] --> Called render()
+[PDFLogger] -- [DEBUG] -- [CodeLine:22] -- [2023-12-13 15:20:02,008] --> Loaded env: <jinja2.environment.Environment object at 0x000002419B3FEBD0>
+[PDFLogger] -- [DEBUG] -- [CodeLine:49] -- [2023-12-13 15:20:02,321] --> Path to engine used: \\Mac\Home\Documents\Dev\FTS-Tool-Kit\dist\FTS Service Toolkit 0.1.1\.

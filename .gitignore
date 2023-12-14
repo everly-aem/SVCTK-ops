@@ -1,2 +1,4 @@
 /_internal/wkhtmltox
 /_log
+/build
+/dist
