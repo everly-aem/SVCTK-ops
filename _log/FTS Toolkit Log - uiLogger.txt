@@ -1,29 +1,29 @@
-[uiLogger] -- [INFO] -- [CodeLine:57] -- [2023-12-13 15:21:18,850] --> Logger Created, begin logging.
-[uiLogger] -- [INFO] -- [CodeLine:92] -- [2023-12-13 15:21:18,897] --> Loading configuration file.
-[uiLogger] -- [INFO] -- [CodeLine:101] -- [2023-12-13 15:21:18,897] --> Setting up UI elements
-[uiLogger] -- [INFO] -- [CodeLine:120] -- [2023-12-13 15:21:19,100] --> Creating relationships between buttons and functions
-[uiLogger] -- [INFO] -- [CodeLine:138] -- [2023-12-13 15:21:19,100] --> Creating toolbar connectors
-[uiLogger] -- [INFO] -- [CodeLine:153] -- [2023-12-13 15:21:19,100] --> Working on other UI elements
-[uiLogger] -- [INFO] -- [CodeLine:247] -- [2023-12-13 15:21:19,100] --> Updating the date
-[uiLogger] -- [INFO] -- [CodeLine:250] -- [2023-12-13 15:21:19,100] --> Update the date to: 2023-12-13
-[uiLogger] -- [INFO] -- [CodeLine:169] -- [2023-12-13 15:21:19,100] --> Setting non-itterable UI input data validators
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index0
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index1
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index2
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index3
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index4
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index5
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index6
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index7
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index8
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index9
-[uiLogger] -- [INFO] -- [CodeLine:183] -- [2023-12-13 15:21:19,100] --> Setting input data validators for tabWidget index10
-[uiLogger] -- [INFO] -- [CodeLine:206] -- [2023-12-13 15:21:19,959] --> Setup complete!
-[uiLogger] -- [INFO] -- [CodeLine:499] -- [2023-12-13 15:21:26,302] --> Looking for 999999
-[uiLogger] -- [INFO] -- [CodeLine:509] -- [2023-12-13 15:21:28,067] --> Getting from DB collection
-[uiLogger] -- [INFO] -- [CodeLine:515] -- [2023-12-13 15:21:28,083] --> Data found! Listing in UI...
-[uiLogger] -- [DEBUG] -- [CodeLine:516] -- [2023-12-13 15:21:28,083] --> Data to display: [{'_id': ObjectId('65736315a27299c36b024e5a'), 'destCollection': 'THS', 'Serial_Number': '999999', 'Date_of_Entry': '2023-12-08', 'SVC_Details': {'NS_RMA': 'RMA-7777', 'NS_Customer': '777777', 'NS_Parts_SO': 'SO77777', 'Jira_Ticket': 'CST-7777', 'THS_Sensor_Info': {'00-THS-3_Serial_Number': '999999', 'Incoming_Status': 'Preventative Maintenance'}, 'Incoming_and_Visual': {'Passed_Checks': 'Passed', '00-THS-3_FW_Ver': '15', 'Visual_Complete': False, 'Cleaned': False}, 'Calibration_and_Servicing': {'Incoming_RH': 'Pass', 'Incoming_Temp': 'Pass', 'Required_Repairs': 'None Required', 'RH_Calibrated': 'Recalibrated', 'Builentins_Used': 'None', 'Active_Current_Pass': False, 'Filter_Replaced': False, 'Desiccant_Replaced': False, 'RH_Calibration_Pass': False, 'Temp_Calibration_Pass': False, 'CTM_Installed': False}, 'Service_Comments': '', 'Warranty_Status': 'Limited Warranty', 'Tech': "Everly's Testing Account 2"}}]
-[uiLogger] -- [INFO] -- [CodeLine:587] -- [2023-12-13 15:21:30,239] --> Generating PDF file...
-[uiLogger] -- [DEBUG] -- [CodeLine:590] -- [2023-12-13 15:21:30,239] --> Creating object of MakePDF
-[uiLogger] -- [DEBUG] -- [CodeLine:592] -- [2023-12-13 15:21:30,239] --> Generator created
-[uiLogger] -- [INFO] -- [CodeLine:609] -- [2023-12-13 15:21:31,746] --> A task completed, showing complete window
+[uiLogger] -- [INFO] -- [CodeLine:57] -- [2024-01-16 07:59:00,723] --> Logger Created, begin logging.
+[uiLogger] -- [INFO] -- [CodeLine:92] -- [2024-01-16 07:59:00,893] --> Loading configuration file.
+[uiLogger] -- [INFO] -- [CodeLine:101] -- [2024-01-16 07:59:00,893] --> Setting up UI elements
+[uiLogger] -- [INFO] -- [CodeLine:120] -- [2024-01-16 07:59:01,493] --> Creating relationships between buttons and functions
+[uiLogger] -- [INFO] -- [CodeLine:138] -- [2024-01-16 07:59:01,493] --> Creating toolbar connectors
+[uiLogger] -- [INFO] -- [CodeLine:153] -- [2024-01-16 07:59:01,493] --> Working on other UI elements
+[uiLogger] -- [INFO] -- [CodeLine:247] -- [2024-01-16 07:59:01,493] --> Updating the date
+[uiLogger] -- [INFO] -- [CodeLine:250] -- [2024-01-16 07:59:01,493] --> Update the date to: 2024-01-16
+[uiLogger] -- [INFO] -- [CodeLine:169] -- [2024-01-16 07:59:01,493] --> Setting non-itterable UI input data validators
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,493] --> Setting input data validators for tabWidget index0
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,493] --> Setting input data validators for tabWidget index1
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,493] --> Setting input data validators for tabWidget index2
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,502] --> Setting input data validators for tabWidget index3
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,502] --> Setting input data validators for tabWidget index4
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,502] --> Setting input data validators for tabWidget index5
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,502] --> Setting input data validators for tabWidget index6
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,502] --> Setting input data validators for tabWidget index7
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,502] --> Setting input data validators for tabWidget index8
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,502] --> Setting input data validators for tabWidget index9
+[uiLogger] -- [INFO] -- [CodeLine:183] -- [2024-01-16 07:59:01,502] --> Setting input data validators for tabWidget index10
+[uiLogger] -- [INFO] -- [CodeLine:206] -- [2024-01-16 07:59:01,502] --> Setup complete!
+[uiLogger] -- [INFO] -- [CodeLine:499] -- [2024-01-16 08:03:40,562] --> Looking for 000000
+[uiLogger] -- [INFO] -- [CodeLine:509] -- [2024-01-16 08:03:41,652] --> Getting from DB collection
+[uiLogger] -- [INFO] -- [CodeLine:515] -- [2024-01-16 08:03:41,713] --> Data found! Listing in UI...
+[uiLogger] -- [DEBUG] -- [CodeLine:516] -- [2024-01-16 08:03:41,713] --> Data to display: [{'_id': ObjectId('65736d5db88e2d2f6e24796a'), 'destCollection': 'FS', 'Serial_Number': '000000', 'Date_of_Entry': '2023-12-08', 'SVC_Details': {'NS_RMA': 'RMA-0000', 'NS_Customer': '000000', 'NS_Parts_SO': 'SO00000', 'Jira_Ticket': 'CST-0000', 'FS_Sensor_Info': {'00-THS-3_Serial_Number': '000000', 'Model_Option': 'FS-3-1', 'Incoming_Status': 'Preventative Maintenance'}, 'Incoming_and_Visual': {'Passed_Checks': 'Passed', '00-THS-3_FW_Ver': '15', 'Visual_Complete': False, 'Cleaned': False, 'Incoming_Notes': 'erhgouyeargfohaegro'}, 'Calibration_and_Servicing': {'Incoming_RH': 'Pass', 'Incoming_Temp': 'Pass', 'Required_Repairs': 'None Required', 'RH_Calibrated': 'Recalibrated', 'Builentins_Used': 'None', 'Active_Current_Pass': False, 'Filter_Replaced': False, 'Desiccant_Replaced': False, 'RH_Calibration_Pass': False, 'Temp_Calibration_Pass': False, 'CTM_Installed': False, 'Dowel_Replaced': 'No'}, 'Service_Comments': 'jshegiourehasliguhaeiugfiulgrfiuheirhf', 'Warranty_Status': 'Limited Warranty', 'Tech': "Everly's Testing Account 2"}}]
+[uiLogger] -- [INFO] -- [CodeLine:587] -- [2024-01-16 08:03:44,242] --> Generating PDF file...
+[uiLogger] -- [DEBUG] -- [CodeLine:590] -- [2024-01-16 08:03:44,252] --> Creating object of MakePDF
+[uiLogger] -- [DEBUG] -- [CodeLine:592] -- [2024-01-16 08:03:44,252] --> Generator created
+[uiLogger] -- [INFO] -- [CodeLine:609] -- [2024-01-16 08:03:45,644] --> A task completed, showing complete window

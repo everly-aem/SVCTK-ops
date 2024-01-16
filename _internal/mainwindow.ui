@@ -298,7 +298,7 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="fs_tab">
          <attribute name="title">
@@ -306,7 +306,7 @@
          </attribute>
          <layout class="QGridLayout" name="gridLayout_12">
           <item row="0" column="0">
-           <widget class="QScrollArea" name="scroll_area_fs">
+           <widget class="QScrollArea" name="FS_scroll_area">
             <property name="widgetResizable">
              <bool>true</bool>
             </property>
@@ -2142,7 +2142,7 @@
      <x>0</x>
      <y>0</y>
      <width>1441</width>
-     <height>37</height>
+     <height>24</height>
     </rect>
    </property>
    <property name="nativeMenuBar">

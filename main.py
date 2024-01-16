@@ -2,7 +2,7 @@
 
 # Title: FTS Service Toolkit Main File
 # Author: Everly Larche - Integrations Specalist
-# Rev: 0.1.0
+# Rev: 0.1.4
 # Date: 2023-12-12
 
 # This souce is not designed to be read by the end user
@@ -549,7 +549,7 @@ class mainUI():
                     self.window.tabWidget.setCurrentIndex(0)
                     with open(os.path.join(self._absDIR, '_internal', '__templateStructs', 'fs_translation.json'), 'r') as jsonFile:
                                 fs_translation = json.loads(jsonFile.read())
-                    self.childrenData(children=self.window.fs_scroll_area_contents.children(), template=None, translation=fs_translation, get=False, set=True)
+                    self.childrenData(children=self.window.FS_scroll_area_contents.children(), template=None, translation=fs_translation, get=False, set=True)
 
                 case "THS":
                     self.window.tabWidget.setCurrentIndex(1)

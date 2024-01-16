@@ -26,7 +26,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='FTS Service Toolkit 0.1.3',
+    name='FTS Service Toolkit 0.1.4',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -45,5 +45,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='FTS Service Toolkit 0.1.3',
+    name='FTS Service Toolkit 0.1.4',
 )

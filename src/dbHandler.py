@@ -1,7 +1,7 @@
 # This Python file uses the following encoding: utf-8
 
 from pymongo import MongoClient as mc
-import os, json
+import os, json, certifi
 import src.credentialHandler as credientialHandler
 
 class mongoHandler:
@@ -38,10 +38,13 @@ class mongoHandler:
             raise Exception
 
         try:
+            ca = certifi.where()
+            self.logger.debug(f"Got CA certs: {ca}")
             self.client = mc(
                 host='mongodb+srv://aemftscluster0.1kekelk.mongodb.net',
                 username=userLevelName,
-                password=userLevelPassword
+                password=userLevelPassword,
+                tlsCAFile=ca
             )
 
             self.logger.debug(f'Mongo Cluster Information: {self.client.server_info()}')
@@ -112,3 +115,6 @@ class mongoHandler:
             if len(results) != 0: break
         self.logger.debug(f'Results: {results}')
         return results
+
+    def disconnectDB(self):
+        self.client.close()

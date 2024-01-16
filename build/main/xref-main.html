@@ -387,7 +387,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>'org.python'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#copy">copy</a>
+    <a href="#pickle">pickle</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
 
   </div>
@@ -1091,6 +1091,8 @@ imported by:
  &#8226;   <a href="#bson.timestamp">bson.timestamp</a>
  &#8226;   <a href="#bson.typings">bson.typings</a>
  &#8226;   <a href="#bson.tz_util">bson.tz_util</a>
+ &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
+ &#8226;   <a href="#importlib_metadata._meta">importlib_metadata._meta</a>
  &#8226;   <a href="#keyring.backend">keyring.backend</a>
  &#8226;   <a href="#passlib.context">passlib.context</a>
  &#8226;   <a href="#passlib.crypto.digest">passlib.crypto.digest</a>
@@ -3929,10 +3931,38 @@ imported by:
 
 <div class="node">
   <a name="certifi"></a>
-  <a target="code" href="" type="text/plain"><tt>certifi</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
+  <a target="code" href="///C:/Users/everlylarche/AppData/Local/Programs/Python/Python311/Lib/site-packages/certifi/__init__.py" type="text/plain"><tt>certifi</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#certifi.core">certifi.core</a>
+
+  </div>
+  <div class="import">
 imported by:
-    <a href="#pymongo.pyopenssl_context">pymongo.pyopenssl_context</a>
+    <a href="#certifi.core">certifi.core</a>
+ &#8226;   <a href="#pymongo.pyopenssl_context">pymongo.pyopenssl_context</a>
+ &#8226;   <a href="#src.dbHandler">src.dbHandler</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="certifi.core"></a>
+  <a target="code" href="///C:/Users/everlylarche/AppData/Local/Programs/Python/Python311/Lib/site-packages/certifi/core.py" type="text/plain"><tt>certifi.core</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#certifi">certifi</a>
+ &#8226;   <a href="#importlib.resources">importlib.resources</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#types">types</a>
+ &#8226;   <a href="#typing">typing</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#certifi">certifi</a>
 
   </div>
 
@@ -4486,8 +4516,8 @@ imported by:
   <a target="code" href="///C:/Users/everlylarche/AppData/Local/Programs/Python/Python311/Lib/copy.py" type="text/plain"><tt>copy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#'org.python'">'org.python'</a>
- &#8226;   <a href="#copyreg">copyreg</a>
+    <a href="#copyreg">copyreg</a>
+ &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -12272,7 +12302,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#importlib.resources">importlib.resources</a>
+    <a href="#certifi.core">certifi.core</a>
+ &#8226;   <a href="#importlib.resources">importlib.resources</a>
  &#8226;   <a href="#importlib.resources._adapters">importlib.resources._adapters</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
  &#8226;   <a href="#importlib.resources._itertools">importlib.resources._itertools</a>
@@ -12451,7 +12482,8 @@ imported by:
   <a target="code" href="///C:/Users/everlylarche/AppData/Local/Programs/Python/Python311/Lib/site-packages/importlib_metadata/__init__.py" type="text/plain"><tt>importlib_metadata</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imports:
-    <a href="#abc">abc</a>
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#abc">abc</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#csv">csv</a>
@@ -12546,10 +12578,8 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#importlib_metadata">importlib_metadata</a>
- &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#platform">platform</a>
  &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#typing">typing</a>
 
   </div>
   <div class="import">
@@ -12602,7 +12632,9 @@ imported by:
   <a target="code" href="///C:/Users/everlylarche/AppData/Local/Programs/Python/Python311/Lib/site-packages/importlib_metadata/_meta.py" type="text/plain"><tt>importlib_metadata._meta</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#importlib_metadata">importlib_metadata</a>
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
+ &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#typing">typing</a>
 
   </div>
@@ -15436,7 +15468,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>org</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pickle">pickle</a>
+    <a href="#copy">copy</a>
 
   </div>
 
@@ -15476,6 +15508,7 @@ imported by:
  &#8226;   <a href="#bson">bson</a>
  &#8226;   <a href="#bson.objectid">bson.objectid</a>
  &#8226;   <a href="#bz2">bz2</a>
+ &#8226;   <a href="#certifi.core">certifi.core</a>
  &#8226;   <a href="#concurrent.futures.process">concurrent.futures.process</a>
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
  &#8226;   <a href="#configparser">configparser</a>
@@ -15500,7 +15533,7 @@ imported by:
  &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
  &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
  &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
- &#8226;   <a href="#importlib_metadata._compat">importlib_metadata._compat</a>
+ &#8226;   <a href="#importlib_metadata._meta">importlib_metadata._meta</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#jinja2.bccache">jinja2.bccache</a>
  &#8226;   <a href="#jinja2.environment">jinja2.environment</a>
@@ -16167,14 +16200,14 @@ imported by:
   <a target="code" href="///C:/Users/everlylarche/AppData/Local/Programs/Python/Python311/Lib/pickle.py" type="text/plain"><tt>pickle</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#_compat_pickle">_compat_pickle</a>
+    <a href="#'org.python'">'org.python'</a>
+ &#8226;   <a href="#_compat_pickle">_compat_pickle</a>
  &#8226;   <a href="#_pickle">_pickle</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#struct">struct</a>
@@ -19111,7 +19144,7 @@ imported by:
 
 <div class="node">
   <a name="src"></a>
-  <a target="code" href="////Mac/Home/Documents/Dev/FTS-Tool-Kit/src/__init__.py" type="text/plain"><tt>src</tt></a>
+  <a target="code" href="///Z:/Documents/Dev/FTS-Tool-Kit/src/__init__.py" type="text/plain"><tt>src</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
 imported by:
     <a href="#src.credentialHandler">src.credentialHandler</a>
@@ -19124,7 +19157,7 @@ imported by:
 
 <div class="node">
   <a name="src.credentialHandler"></a>
-  <a target="code" href="////Mac/Home/Documents/Dev/FTS-Tool-Kit/src/credentialHandler.py" type="text/plain"><tt>src.credentialHandler</tt></a>
+  <a target="code" href="///Z:/Documents/Dev/FTS-Tool-Kit/src/credentialHandler.py" type="text/plain"><tt>src.credentialHandler</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#keyring">keyring</a>
@@ -19143,10 +19176,11 @@ imported by:
 
 <div class="node">
   <a name="src.dbHandler"></a>
-  <a target="code" href="////Mac/Home/Documents/Dev/FTS-Tool-Kit/src/dbHandler.py" type="text/plain"><tt>src.dbHandler</tt></a>
+  <a target="code" href="///Z:/Documents/Dev/FTS-Tool-Kit/src/dbHandler.py" type="text/plain"><tt>src.dbHandler</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#json">json</a>
+    <a href="#certifi">certifi</a>
+ &#8226;   <a href="#json">json</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#pymongo">pymongo</a>
  &#8226;   <a href="#src">src</a>
@@ -19163,7 +19197,7 @@ imported by:
 
 <div class="node">
   <a name="src.pdfGenerator"></a>
-  <a target="code" href="////Mac/Home/Documents/Dev/FTS-Tool-Kit/src/pdfGenerator.py" type="text/plain"><tt>src.pdfGenerator</tt></a>
+  <a target="code" href="///Z:/Documents/Dev/FTS-Tool-Kit/src/pdfGenerator.py" type="text/plain"><tt>src.pdfGenerator</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#jinja2">jinja2</a>
@@ -19545,6 +19579,7 @@ imported by:
  &#8226;   <a href="#base64">base64</a>
  &#8226;   <a href="#bson">bson</a>
  &#8226;   <a href="#calendar">calendar</a>
+ &#8226;   <a href="#certifi.core">certifi.core</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#concurrent.futures.process">concurrent.futures.process</a>
@@ -20078,6 +20113,7 @@ imported by:
  &#8226;   <a href="#asyncio.queues">asyncio.queues</a>
  &#8226;   <a href="#asyncio.tasks">asyncio.tasks</a>
  &#8226;   <a href="#asyncio.timeouts">asyncio.timeouts</a>
+ &#8226;   <a href="#certifi.core">certifi.core</a>
  &#8226;   <a href="#concurrent.futures._base">concurrent.futures._base</a>
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
  &#8226;   <a href="#contextlib">contextlib</a>
@@ -20166,6 +20202,7 @@ imported by:
  &#8226;   <a href="#bson.timestamp">bson.timestamp</a>
  &#8226;   <a href="#bson.typings">bson.typings</a>
  &#8226;   <a href="#bson.tz_util">bson.tz_util</a>
+ &#8226;   <a href="#certifi.core">certifi.core</a>
  &#8226;   <a href="#dns.asyncbackend">dns.asyncbackend</a>
  &#8226;   <a href="#dns.asyncquery">dns.asyncquery</a>
  &#8226;   <a href="#dns.asyncresolver">dns.asyncresolver</a>
@@ -20211,7 +20248,6 @@ imported by:
  &#8226;   <a href="#importlib.resources._legacy">importlib.resources._legacy</a>
  &#8226;   <a href="#importlib.resources.abc">importlib.resources.abc</a>
  &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
- &#8226;   <a href="#importlib_metadata._compat">importlib_metadata._compat</a>
  &#8226;   <a href="#importlib_metadata._meta">importlib_metadata._meta</a>
  &#8226;   <a href="#importlib_metadata._py39compat">importlib_metadata._py39compat</a>
  &#8226;   <a href="#jinja2.async_utils">jinja2.async_utils</a>
